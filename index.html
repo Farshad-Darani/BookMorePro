@@ -475,6 +475,27 @@
                 </div>
             </div>
         </div>
+        <!-- chart shape at section bottom, filled with bg color to cut into process -->
+        <svg class="process__chart-cut" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartLineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#0F1520" stop-opacity="1"/>
+              <stop offset="40%"  stop-color="#006E8A" stop-opacity="0.8"/>
+              <stop offset="60%"  stop-color="#006E8A" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#0F1520" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <polygon
+            fill="#080B12"
+            points="0,800 1440,800 1440,220 1260,220 1260,520 1080,520 1080,588 900,588 900,700 720,700 720,665 540,665 540,725 360,725 360,700 180,700 180,760 0,760"
+          />
+          <polyline
+            fill="none"
+            stroke="url(#chartLineGrad)"
+            stroke-width="3"
+            points="0,760 180,760 180,700 360,700 360,725 540,725 540,665 720,665 720,700 900,700 900,588 1080,588 1080,520 1260,520 1260,220 1440,220"
+          />
+        </svg>
     </section>
 
     <!-- ============================================================
@@ -722,13 +743,11 @@
                     <h2 class="section-title about__title" data-aos="fade-up" data-aos-delay="100">Building Digital Products<br><span class="gradient-text">That Actually Work</span></h2>
                     <p class="about__subtitle section-subtitle">Engineer. Marketer. Builder — all in one.</p>
                 </div>
-                    <p class="about__bio">
-                        I'm <strong>Farshad Darani</strong>, a Software Engineer and Digital Marketing specialist based in Vancouver, BC.
+                    <p class="about__bio" data-aos="fade-up" data-aos-delay="150">, a Software Engineer and Digital Marketing specialist based in Vancouver, BC.
                         With 6+ years of experience across web, mobile, and marketing — I build production-grade platforms that convert
                         visitors into clients.
                     </p>
-                    <p class="about__bio">
-                        I've helped businesses rank #1 on Google, automate lead generation, and ship scalable software used by real users.
+                    <p class="about__bio" data-aos="fade-up" data-aos-delay="250"> #1 on Google, automate lead generation, and ship scalable software used by real users.
                         My background in computer science combined with hands-on marketing gives me a unique edge: I speak both languages
                         — <em>code</em> and <em>conversions</em>.
                     </p>

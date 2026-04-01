@@ -1388,7 +1388,7 @@ HTML:
    PROCESS
    ============================================================ */
 .process {
-  padding: var(--section-py) 0;
+  padding: var(--section-py) 0 calc(var(--section-py) + 150px);
   background: var(--surface);
   border-top: none;
   border-bottom: none;
@@ -1454,6 +1454,7 @@ HTML:
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
   position: relative;
+  margin-top: 0px;
 }
 
 .process__line {
@@ -1545,8 +1546,45 @@ HTML:
 /* ============================================================
    WORK
    ============================================================ */
+/* ── chart cut at process section bottom ── */
+.process__chart-cut {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 800px;
+  display: block;
+  pointer-events: none;
+}
+.process__chart-cut polygon {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.1s;
+}
+.process__chart-cut polyline {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+.process__chart-cut.is-visible polygon {
+  opacity: 1;
+}
+.process__chart-cut.is-visible polyline {
+  stroke-dashoffset: 0;
+}
+
+.work > .container > .bar-reveal {
+  margin-left: auto;
+  margin-bottom: 48px;
+}
+.work > .container > .section-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .work {
-  padding: var(--section-py) 0 calc(var(--section-py) + 80px);
+  padding: 0 0 calc(var(--section-py) + 80px);
+  margin-top: -80px;
   overflow: hidden; /* contain infinite slider clones */
   position: relative;
   z-index: 2;

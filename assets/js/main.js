@@ -638,6 +638,23 @@ function initWorkSlider() {
 })();
 
 // ============================================================
+// PROCESS CHART CUT — fade + draw animation on scroll
+// ============================================================
+(function initChartCutAnim() {
+  const chart = document.querySelector('.process__chart-cut');
+  if (!chart) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        chart.classList.add('is-visible');
+        obs.unobserve(chart);
+      }
+    });
+  }, { threshold: 0.1 });
+  obs.observe(chart);
+})();
+
+// ============================================================
 // ABOUT STATS — fade-up + counter animation
 // ============================================================
 (function initAboutStats() {
