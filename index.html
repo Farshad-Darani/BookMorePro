@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farshad Darani — Full-Stack Engineer & Digital Marketing Expert in Vancouver, BC. High-converting funnels, Google Ads campaigns, and scalable digital products.">
+    <meta name="keywords" content="Google Ads, Digital Marketing, Full-Stack Developer, Funnel Building, Vancouver, Flutter, Node.js">
+    <meta property="og:title" content="BookMorePro | Farshad Darani">
+    <meta property="og:description" content="Full-Stack Engineer & Digital Marketing Expert — I build systems that book more clients.">
+    <meta property="og:type" content="website">
+    <title>BookMorePro | Farshad Darani — Full-Stack Engineer & Digital Marketing Expert</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Bangers&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Page Loader -->
+    <div class="loader" id="loader">
+        <div class="loader__inner">
+            <span class="loader__logo">BMP</span>
+            <div class="loader__bar"><div class="loader__fill"></div></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         NAVIGATION
+    ============================================================ -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="#home" class="nav__logo">
+                <div class="bar-logo">
+                    <span class="bar-logo__bar"></span>
+                    <span class="bar-logo__bar"></span>
+                    <span class="bar-logo__bar"></span>
+                </div>
+            </a>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#services" class="nav__link">Services</a></li>
+                <li><a href="#process" class="nav__link">Process</a></li>
+                <li><a href="#work" class="nav__link">Work</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <div class="galaxy-button">
+              <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                <span class="text">Book a Call</span>
+              </button>
+            </div>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__links">
+            <a href="#services" class="mobile-menu__link">Services</a>
+            <a href="#work" class="mobile-menu__link">Work</a>
+            <a href="#process" class="mobile-menu__link">Process</a>
+            <a href="#about" class="mobile-menu__link">About</a>
+            <a href="#contact" class="mobile-menu__link">Contact</a>
+            <a href="#contact" class="btn btn--primary mobile-menu__cta">Book a Strategy Call</a>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+        <!-- Animated Background -->
+        <div class="hero__bg">
+            <div class="hero__orb hero__orb--gold"></div>
+            <div class="hero__orb hero__orb--cyan"></div>
+            <div class="hero__orb hero__orb--purple"></div>
+            <div class="hero__grid"></div>
+            <canvas class="hero__canvas" id="heroCanvas"></canvas>
+        </div>
+
+        <div class="container hero__container">
+            <!-- Left : Content -->
+            <div class="hero__content">
+                <div class="hero__available-wrap">
+                    <button data-aos="fade-down" data-aos-delay="200" class="glowing-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                        <span class="glowing-txt">A<span class="faulty-letter">V</span>AILABLE</span>
+                    </button>
+                </div>
+
+                <h1 class="hero__title" data-aos="fade-up" data-aos-delay="300">
+                    <span style="font-size: 0.9em;">I Build Systems That</span><br>
+                    <span class="gradient-text">Book More Clients</span>
+                </h1>
+
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="400">
+                    Full-Stack Engineer &amp; Digital Marketing Expert based in Vancouver, BC.
+                    I design high-converting funnels, run performance ad campaigns, and build
+                    scalable digital products that drive real revenue.
+                </p>
+
+                <div class="hero__ctas" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#work" class="btn btn--primary">
+                        <span>See My Work</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn--outline">
+                        <span>Book a Strategy Call</span>
+                    </a>
+                </div>
+
+                <div class="hero__stats" data-aos="fade-up" data-aos-delay="600">
+                    <div class="hero__stat">
+                        <div class="hero__stat-num-wrap">
+                            <span class="hero__stat-num" data-count="6">0</span><span class="hero__stat-suffix">+</span>
+                        </div>
+                        <span class="hero__stat-label">Years Experience</span>
+                    </div>
+                    <div class="hero__stat-divider"></div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-num-wrap">
+                            <span class="hero__stat-num" data-count="10">0</span><span class="hero__stat-suffix">+</span>
+                        </div>
+                        <span class="hero__stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="hero__stat-divider"></div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-num-wrap">
+                            <span class="hero__stat-num hero__stat-num--static">#1</span>
+                        </div>
+                        <span class="hero__stat-label">Google Rankings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right : Visual -->
+            <div class="hero__visual" data-aos="fade-left" data-aos-delay="400">
+                <!-- Main Profile Card -->
+                <div class="hero__card">
+                    <div class="hero__avatar">
+                        <img src="assets/images/Farshad-Darani.png" alt="Farshad Darani" class="hero__avatar-img">
+                    </div>
+                    <div class="hero__card-info">
+                        <h3 class="hero__card-name">Farshad Darani</h3>
+                        <p class="hero__card-role">Full-Stack Engineer &amp; Marketing Expert</p>
+                        <div class="hero__card-location">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Vancouver, BC, Canada
+                        </div>
+                    </div>
+                    <div class="hero__card-status">
+                        <span class="hero__status-dot"></span>
+                        Available
+                    </div>
+                </div>
+
+                <!-- Floating Skill Tags (orbiting) -->
+                <div class="hero__orbit">
+                    <div class="hero__tag hero__tag--1">
+                        <span>⚡</span> Google Ads Management
+                    </div>
+                    <div class="hero__tag hero__tag--2">
+                        <span>💻</span> Full-Stack Development
+                    </div>
+                    <div class="hero__tag hero__tag--3">
+                        <span>📱</span> Mobile App Development
+                    </div>
+                    <div class="hero__tag hero__tag--4">
+                        <span>📈</span> Conversion Optimization
+                    </div>
+                </div>
+
+                <!-- Decorative Ring -->
+                <div class="hero__ring"></div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="hero__scroll-indicator">
+            <div class="hero__scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST BAR
+    ============================================================ -->
+    <div class="trust-bar">
+        <div class="trust-bar__track">
+            <div class="trust-bar__items" id="trustItems">
+                <span class="trust-bar__item">Google Ads</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Meta Ads</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">TikTok Ads</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Node.js</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Flutter &amp; Dart</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">PostgreSQL</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Google Analytics</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">NGINX &amp; VPS</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Conversion Funnels</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Google Tag Manager</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">React Native</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">REST APIs</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">MySQL</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">OpenAI API</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">AI Chatbots</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">LLM Integration</span>
+                <span class="trust-bar__sep">✦</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="trust-bar__item">Google Ads</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Meta Ads</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">TikTok Ads</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Node.js</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Flutter &amp; Dart</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">PostgreSQL</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Google Analytics</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">NGINX &amp; VPS</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Conversion Funnels</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">Google Tag Manager</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">React Native</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">REST APIs</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">MySQL</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">OpenAI API</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">AI Chatbots</span>
+                <span class="trust-bar__sep">✦</span>
+                <span class="trust-bar__item">LLM Integration</span>
+                <span class="trust-bar__sep">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================ -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="bar-reveal" id="barRevealServices">
+                <div class="bar-reveal__bars">
+                    <span class="bar-reveal__bar"></span>
+                    <span class="bar-reveal__bar"></span>
+                    <span class="bar-reveal__bar"></span>
+                </div>
+                <span class="bar-reveal__text">What I Do</span>
+            </div>
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100"><span style="font-size:0.9em;">Services That Drive</span><br><span class="gradient-text">Real Results</span></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">From strategy to execution — every layer of your digital growth, handled.</p>
+            </div>
+
+            <div class="services__grid">
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                    <div class="service-card__glow"></div>
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <span class="service-card__num">01</span>
+                    <h3 class="service-card__title">Paid Ads Management</h3>
+                    <p class="service-card__desc">High-ROI campaigns on Google, Meta, and TikTok. From keyword strategy to ad copy, bidding, and continuous optimization.</p>
+                    <ul class="service-card__list">
+                        <li>Google Search &amp; Display Ads</li>
+                        <li>Meta (Facebook &amp; Instagram) Ads</li>
+                        <li>A/B testing &amp; campaign optimization</li>
+                        <li>Conversion tracking &amp; GTM setup</li>
+                    </ul>
+                    <a href="#contact" class="service-card__arrow">
+                        <span class="service-card__arrow-label">Let's Talk</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card service-card--featured" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                    <div class="service-card__glow"></div>
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="service-card__num">02</span>
+                    <h3 class="service-card__title">Conversion Funnels</h3>
+                    <p class="service-card__desc">End-to-end funnel architecture that turns cold traffic into booked calls and paying customers — engineered for maximum conversion.</p>
+                    <ul class="service-card__list">
+                        <li>Landing page design &amp; development</li>
+                        <li>Lead capture &amp; CRM integration</li>
+                        <li>Email automation sequences</li>
+                        <li>Funnel analytics &amp; split testing</li>
+                    </ul>
+                    <a href="#contact" class="service-card__arrow">
+                        <span class="service-card__arrow-label">Let's Talk</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300" data-tilt>
+                    <div class="service-card__glow"></div>
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <span class="service-card__num">03</span>
+                    <h3 class="service-card__title">Full-Stack Web Development</h3>
+                    <p class="service-card__desc">Production-grade platforms with clean architecture, secure backends, and conversion-focused frontends — built to perform and scale.</p>
+                    <ul class="service-card__list">
+                        <li>Node.js / Express.js backend</li>
+                        <li>MySQL &amp; PostgreSQL databases</li>
+                        <li>VPS deployment with NGINX &amp; SSL</li>
+                        <li>Authentication, APIs &amp; dashboards</li>
+                    </ul>
+                    <a href="#contact" class="service-card__arrow">
+                        <span class="service-card__arrow-label">Let's Talk</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400" data-tilt>
+                    <div class="service-card__glow"></div>
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <span class="service-card__num">04</span>
+                    <h3 class="service-card__title">Mobile App Development</h3>
+                    <p class="service-card__desc">Cross-platform iOS &amp; Android apps with Flutter/Dart. From concept to App Store — reliable, fast, and production-ready.</p>
+                    <ul class="service-card__list">
+                        <li>Flutter / Dart cross-platform apps</li>
+                        <li>BLE &amp; IoT hardware integrations</li>
+                        <li>Offline-first architecture</li>
+                        <li>App Store &amp; Play Store deployment</li>
+                    </ul>
+                    <a href="#contact" class="service-card__arrow">
+                        <span class="service-card__arrow-label">Let's Talk</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PROCESS
+    ============================================================ -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process__content" data-aos="fade-up" data-aos-delay="100">
+                <div class="bar-reveal" id="barRevealProcess">
+                    <div class="bar-reveal__bars">
+                        <span class="bar-reveal__bar"></span>
+                        <span class="bar-reveal__bar"></span>
+                        <span class="bar-reveal__bar"></span>
+                    </div>
+                    <span class="bar-reveal__text">How It Works</span>
+                </div>
+            </div>
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100"><span style="font-size:0.9em;">From Discovery to</span><br><span class="gradient-text">Measurable Growth</span></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">A proven 4-step process that gets results without guesswork.</p>
+            </div>
+
+            <div class="process__timeline">
+                <div class="process__line"></div>
+
+                <div class="process__step">
+                    <div class="process__step-num" data-aos="fade-right" data-aos-delay="100">01</div>
+                    <div class="process__step-body" data-aos="fade-up" data-aos-delay="200">
+                        <div class="process__step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </div>
+                        <h3>Discovery &amp; Audit</h3>
+                        <p>Deep-dive into your current setup — ads, funnel, website, and tech stack. Identify what's working, what's broken, and where the biggest wins are hiding.</p>
+                    </div>
+                </div>
+
+                <div class="process__step">
+                    <div class="process__step-num" data-aos="fade-right" data-aos-delay="200">02</div>
+                    <div class="process__step-body" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process__step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+                            </svg>
+                        </div>
+                        <h3>Strategy &amp; Architecture</h3>
+                        <p>Build a data-driven roadmap: ad strategy, funnel design, tech architecture. Clear deliverables, timelines, and KPIs defined before a single line of code is written.</p>
+                    </div>
+                </div>
+
+                <div class="process__step">
+                    <div class="process__step-num" data-aos="fade-right" data-aos-delay="300">03</div>
+                    <div class="process__step-body" data-aos="fade-up" data-aos-delay="400">
+                        <div class="process__step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3>Build &amp; Launch</h3>
+                        <p>Execute with precision. Campaigns go live, funnels are deployed, code ships to production — tested, optimised, and conversion-ready from day one.</p>
+                    </div>
+                </div>
+
+                <div class="process__step">
+                    <div class="process__step-num" data-aos="fade-right" data-aos-delay="400">04</div>
+                    <div class="process__step-body" data-aos="fade-up" data-aos-delay="500">
+                        <div class="process__step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <h3>Optimize &amp; Scale</h3>
+                        <p>Continuous improvement through analytics, A/B testing, and performance monitoring. Scale what works, cut what doesn't. Growth that compounds over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         WORK / PORTFOLIO
+    ============================================================ -->
+    <section class="work" id="work">
+        <div class="container">
+            <div class="bar-reveal" id="barRevealWork">
+                <div class="bar-reveal__bars">
+                    <span class="bar-reveal__bar"></span>
+                    <span class="bar-reveal__bar"></span>
+                    <span class="bar-reveal__bar"></span>
+                </div>
+                <span class="bar-reveal__text">Proof of Work</span>
+            </div>
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100"><span style="font-size:0.9em;">Built &amp; Shipped —</span><br><span class="gradient-text">Proof of Work</span></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Real platforms, real clients, real measurable impact.</p>
+            </div>
+
+            <div class="work__slider" id="workSlider" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="work__track" id="workTrack">
+
+                    <!-- Slide 1: ATFA -->
+                    <div class="work-slide work-slide--atfa" style="--card-accent: #10B981">
+                        <div class="work-slide__img-wrap">
+                            <img src="assets/images/atfa-web.png" alt="ATFA website" loading="lazy" class="work-slide__img">
+                        </div>
+                        <img src="assets/images/atfa.png" alt="ATFA phone mockup" loading="lazy" class="work-slide__phone">
+                        <div class="work-slide__body">
+                            <div class="work-slide__tags">
+                                <span>Flutter</span><span>BLE / OBD-II</span><span>iOS + Android</span>
+                            </div>
+                            <h3 class="work-slide__title">ATFA — Real-Time Vehicle Diagnostics</h3>
+                            <p class="work-slide__desc">Cross-platform vehicle diagnostics app with real-time OBD-II telemetry streaming over Bluetooth Low Energy. Sub-500ms latency, offline-first, DTC decoding — production-ready on iOS &amp; Android.</p>
+                            <div class="work-slide__metrics">
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">&lt;500ms</span>
+                                    <span class="work-slide__metric-label">Latency</span>
+                                </div>
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">iOS+Android</span>
+                                    <span class="work-slide__metric-label">Cross-Platform</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/Farshad-Darani/ATFA-Mobile-App" target="_blank" rel="noopener noreferrer" class="work-slide__link">
+                                View on GitHub
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: DeedDraw -->
+                    <div class="work-slide" style="--card-accent: #F5A623">
+                        <div class="work-slide__img-wrap">
+                            <img src="assets/images/DeedDraw.png" alt="DeedDraw.com" loading="lazy" class="work-slide__img">
+                        </div>
+                        <div class="work-slide__body">
+                            <div class="work-slide__tags">
+                                <span>Node.js</span><span>MySQL</span><span>Full-Stack</span><span>VPS / NGINX</span>
+                            </div>
+                            <h3 class="work-slide__title">DeedDraw.com</h3>
+                            <p class="work-slide__desc">Production-grade real estate rewards platform supporting 1,000+ potential users. Full-stack with secure auth, email verification, admin dashboards, referral tracking, and automated certificate generation.</p>
+                            <div class="work-slide__metrics">
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">1000+</span>
+                                    <span class="work-slide__metric-label">Potential Users</span>
+                                </div>
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">Live</span>
+                                    <span class="work-slide__metric-label">Production</span>
+                                </div>
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">Full</span>
+                                    <span class="work-slide__metric-label">Auth + Admin</span>
+                                </div>
+                            </div>
+                            <a href="https://deedDraw.com" target="_blank" rel="noopener noreferrer" class="work-slide__link">
+                                View Project
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: DejaVu -->
+                    <div class="work-slide" style="--card-accent: #00C2FF">
+                        <div class="work-slide__img-wrap">
+                            <img src="assets/images/Dejavu.png" alt="DejaVu Home Remodeling" loading="lazy" class="work-slide__img">
+                        </div>
+                        <div class="work-slide__body">
+                            <div class="work-slide__tags">
+                                <span>Google Ads</span><span>SEO</span><span>GTM</span>
+                            </div>
+                            <h3 class="work-slide__title">DejaVu Home Remodeling</h3>
+                            <p class="work-slide__desc">High-performance marketing website achieving #1 ranking in California through strategic Google Ads campaigns with conversion-focused UI and full analytics setup.</p>
+                            <div class="work-slide__metrics">
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">#1</span>
+                                    <span class="work-slide__metric-label">Google Ranking</span>
+                                </div>
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">CA</span>
+                                    <span class="work-slide__metric-label">Market</span>
+                                </div>
+                            </div>
+                            <a href="https://dejavuhomeremodeling.com" target="_blank" rel="noopener noreferrer" class="work-slide__link">
+                                View Project
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: VendFeed -->
+                    <div class="work-slide work-slide--vendfeed" style="--card-accent: #F59E0B">
+                        <div class="work-slide__img-wrap">
+                            <img src="assets/images/vendfeed-tablet.png" alt="VendFeed tablet view" loading="lazy" class="work-slide__img">
+                        </div>
+                        <img src="assets/images/vendfeed-mob.png" alt="VendFeed mobile view" loading="lazy" class="work-slide__phone">
+                        <div class="work-slide__body">
+                            <div class="work-slide__tags">
+                                <span>React Native</span><span>Node.js</span><span>PostgreSQL</span><span>Geolocation</span>
+                            </div>
+                            <h3 class="work-slide__title">VendFeed — Service Marketplace</h3>
+                            <p class="work-slide__desc">Two-sided marketplace platform built with React Native (iOS &amp; Android) and a Node.js/PostgreSQL backend. Full booking workflows, geolocation-based discovery, user rating systems, and role-based access control built from the ground up.</p>
+                            <div class="work-slide__metrics">
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">2-Sided</span>
+                                    <span class="work-slide__metric-label">Marketplace</span>
+                                </div>
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">RBAC</span>
+                                    <span class="work-slide__metric-label">Access Control</span>
+                                </div>
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">Open</span>
+                                    <span class="work-slide__metric-label">Source</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/Farshad-Darani/VendFeed" target="_blank" rel="noopener noreferrer" class="work-slide__link">
+                                View on GitHub
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: SamInCleaning -->
+                    <div class="work-slide" style="--card-accent: #8B5CF6">
+                        <div class="work-slide__img-wrap">
+                            <img src="assets/images/Samin.png" alt="SamInCleaning.com" loading="lazy" class="work-slide__img">
+                        </div>
+                        <div class="work-slide__body">
+                            <div class="work-slide__tags">
+                                <span>Google Ads</span><span>Lead Gen</span><span>Local SEO</span>
+                            </div>
+                            <h3 class="work-slide__title">SamIn Cleaning.com</h3>
+                            <p class="work-slide__desc">Fast-loading, responsive Vancouver service website optimised for a competitive local market with integrated ad tracking, lead capture funnels, and high mobile performance scores.</p>
+                            <div class="work-slide__metrics">
+                                <div class="work-slide__metric">
+                                    <span class="work-slide__metric-val">Vancouver</span>
+                                    <span class="work-slide__metric-label">Local SEO</span>
+                                </div>
+                            </div>
+                            <a href="https://samincleaning.com" target="_blank" rel="noopener noreferrer" class="work-slide__link">
+                                View Project
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="work__controls" data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">
+                <button class="work__btn work__btn--prev" id="workPrev" aria-label="Previous project">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="work__dots" id="workDots">
+                    <button class="work__dot" aria-label="ATFA"></button>
+                    <button class="work__dot" aria-label="DeedDraw"></button>
+                    <button class="work__dot" aria-label="DejaVu"></button>
+                    <button class="work__dot" aria-label="VendFeed"></button>
+                    <button class="work__dot" aria-label="SamInCleaning"></button>
+                </div>
+                <button class="work__btn work__btn--next" id="workNext" aria-label="Next project">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+    ============================================================ -->
+    <section class="about" id="about">
+        <div class="container">
+
+            <div class="about__body">
+
+                <!-- Left: Sticky Profile Card -->
+                <div class="about__profile" data-aos="fade-up" data-aos-delay="150">
+                    <div class="about__image-wrap">
+                        <img src="assets/images/Farshad-Darani-Profile.png" alt="Farshad Darani" class="about__photo" loading="lazy">
+                        <div class="about__image-ring"></div>
+                        <div class="about__badge about__badge--1">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            Software Engineer
+                        </div>
+                        <div class="about__badge about__badge--2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Vancouver, BC
+                        </div>
+                    </div>
+                    <p class="about__tagline">"I build systems that <em>book more clients.</em>"</p>
+                    <div class="about__cta-row">
+                        <a href="https://github.com/Farshad-Darani" target="_blank" rel="noopener noreferrer" class="about__link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/farshad-darani" target="_blank" rel="noopener noreferrer" class="about__link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Bio + Stats + Skills -->
+                <div class="about__right">
+                <div class="about__content" data-aos="fade-up" data-aos-delay="250">
+                    <div class="bar-reveal" id="barRevealAbout">
+                        <div class="bar-reveal__bars">
+                            <span class="bar-reveal__bar"></span>
+                            <span class="bar-reveal__bar"></span>
+                            <span class="bar-reveal__bar"></span>
+                        </div>
+                        <span class="bar-reveal__text">About Me</span>
+                    </div>
+                </div>
+                <div class="section-header">
+                    <h2 class="section-title about__title" data-aos="fade-up" data-aos-delay="100">Building Digital Products<br><span class="gradient-text">That Actually Work</span></h2>
+                    <p class="about__subtitle section-subtitle">Engineer. Marketer. Builder — all in one.</p>
+                </div>
+                    <p class="about__bio">
+                        I'm <strong>Farshad Darani</strong>, a Software Engineer and Digital Marketing specialist based in Vancouver, BC.
+                        With 6+ years of experience across web, mobile, and marketing — I build production-grade platforms that convert
+                        visitors into clients.
+                    </p>
+                    <p class="about__bio">
+                        I've helped businesses rank #1 on Google, automate lead generation, and ship scalable software used by real users.
+                        My background in computer science combined with hands-on marketing gives me a unique edge: I speak both languages
+                        — <em>code</em> and <em>conversions</em>.
+                    </p>
+
+                    <div class="about__stats-row">
+                        <div class="about__stat">
+                            <span class="about__stat-val">6+</span>
+                            <span class="about__stat-label">Years Experience</span>
+                        </div>
+                        <div class="about__stat">
+                            <span class="about__stat-val">20+</span>
+                            <span class="about__stat-label">Projects Shipped</span>
+                        </div>
+                        <div class="about__stat">
+                            <span class="about__stat-val">4</span>
+                            <span class="about__stat-label">Industries Served</span>
+                        </div>
+                    </div>
+
+                    <div class="about__skills-box">
+                        <div class="about__skill-row" style="--sk-accent: #00C2FF">
+                            <div class="about__skill-card-head">
+                                <span class="about__skill-dot"></span>
+                                <h4>Backend</h4>
+                            </div>
+                            <div class="about__skill-tags">
+                                <span>Node.js</span>
+                                <span>Express.js</span>
+                                <span>REST APIs</span>
+                                <span>JWT / Auth</span>
+                                <span>MySQL</span>
+                                <span>PostgreSQL</span>
+                                <span>Sequelize</span>
+                            </div>
+                        </div>
+                        <div class="about__skill-row" style="--sk-accent: #F5A623">
+                            <div class="about__skill-card-head">
+                                <span class="about__skill-dot"></span>
+                                <h4>Frontend &amp; Mobile</h4>
+                            </div>
+                            <div class="about__skill-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>React Native</span>
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>Tailwind</span>
+                            </div>
+                        </div>
+                        <div class="about__skill-row" style="--sk-accent: #10B981">
+                            <div class="about__skill-card-head">
+                                <span class="about__skill-dot"></span>
+                                <h4>Marketing &amp; DevOps</h4>
+                            </div>
+                            <div class="about__skill-tags">
+                                <span>Google Ads</span>
+                                <span>Meta Ads</span>
+                                <span>Google Analytics</span>
+                                <span>GTM</span>
+                                <span>NGINX</span>
+                                <span>Linux VPS</span>
+                                <span>CI/CD</span>
+                            </div>
+                        </div>
+                        <div class="about__skill-row" style="--sk-accent: #7C3AED">
+                            <div class="about__skill-card-head">
+                                <span class="about__skill-dot"></span>
+                                <h4>AI &amp; Automation</h4>
+                            </div>
+                            <div class="about__skill-tags">
+                                <span>OpenAI API</span>
+                                <span>LLM Integration</span>
+                                <span>AI Chatbots</span>
+                                <span>Prompt Engineering</span>
+                                <span>Webhooks</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="availability-bridge">
+        <div class="container">
+            <div class="about__availability">
+                <h3 class="about__ai-heading">Need your own <span class="ai-shimmer-text">AI assistant</span>? <a href="#contact" class="about__ai-cta">Let's build yours.</a></h3>
+                <a href="#contact" class="about__ai-arrow" aria-label="Scroll to contact">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 10.5l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="contact" id="contact">
+        <div class="contact__bg-orb"></div>
+        <div class="container">
+            <div class="bar-reveal" id="barRevealContact">
+                <div class="bar-reveal__bars">
+                    <span class="bar-reveal__bar"></span>
+                    <span class="bar-reveal__bar"></span>
+                    <span class="bar-reveal__bar"></span>
+                </div>
+                <span class="bar-reveal__text">Get In Touch</span>
+            </div>
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Ready to <span class="gradient-text">Book More?</span></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Let's talk about your project, goals, and how I can help you get there.</p>
+            </div>
+
+            <div class="contact__grid">
+                <!-- Info Side -->
+                <div class="contact__info" data-aos="fade-right" data-aos-delay="100">
+                    <div class="contact__info-card">
+                        <h3>Let's Work Together</h3>
+                        <p>Whether you need a high-converting funnel, a Google Ads campaign that actually pays off, or a full-stack platform built and deployed — I'm here to make it happen.</p>
+
+                        <div class="contact__details">
+                            <a href="tel:+16042309601" class="contact__detail">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact__detail-text">
+                                    <span>Phone</span>
+                                    <strong>+1 (604) 230-9601</strong>
+                                </div>
+                            </a>
+
+                            <a href="mailto:info@bookmorepro.com" class="contact__detail">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </div>
+                                <div class="contact__detail-text">
+                                    <span>Email</span>
+                                    <strong>info@bookmorepro.com</strong>
+                                </div>
+                            </a>
+
+                            <div class="contact__detail contact__detail--static">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="contact__detail-text">
+                                    <span>Location</span>
+                                    <strong>Vancouver, BC, Canada</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <form class="contact__form" id="contactForm" data-aos="fade-left" data-aos-delay="200"
+                      action="https://formspree.io/f/xpwpgjdo" method="POST" novalidate>
+                    <!-- Honeypot: bots fill this, humans don't -->
+                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">I Need Help With</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="paid-ads">Paid Ads Management</option>
+                            <option value="funnel">Conversion Funnel</option>
+                            <option value="web-dev">Full-Stack Web Development</option>
+                            <option value="mobile">Mobile App Development</option>
+                            <option value="ai-assistant">AI Assistant / Chatbot Integration</option>
+                            <option value="other">Other / Not Sure Yet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                                  placeholder="Tell me about your project, goals, and timeline..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                        <span>Send Message</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                    <p class="form-success" id="formSuccess">Message sent! I'll get back to you within 24 hours.</p>
+                    <div class="form-social-row">
+                        <span class="form-social-label">or reach me on</span>
+                        <a href="https://github.com/Farshad-Darani" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/farshad-darani" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="#home" class="nav__logo footer__logo">
+                        <div class="bar-logo footer__bar-logo">
+                            <span class="bar-logo__bar"></span>
+                            <span class="bar-logo__bar"></span>
+                            <span class="bar-logo__bar"></span>
+                        </div>
+                    </a>
+                    <p>Building digital systems that turn visitors into booked clients.</p>
+                </div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <div class="footer__nav-row">
+                        <a href="#services">Services</a>
+                        <a href="#work">Work</a>
+                        <a href="#process">Process</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer__social">
+                            <a href="https://github.com/Farshad-Darani" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/in/farshad-darani" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Farshad Darani &middot; BookMorePro.com &middot; Vancouver, BC</p>
+                <a href="#home" class="footer__back-top" aria-label="Back to top">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

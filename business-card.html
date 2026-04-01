@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Card — Farshad Darani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Screen Layout ── */
+    body {
+      background: #111827;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 48px 24px;
+      gap: 48px;
+      -webkit-font-smoothing: antialiased;
+      color: #f0f4ff;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #7a8499;
+      font-weight: 500;
+    }
+
+    .print-hint {
+      font-size: 13px;
+      color: #4a556a;
+      text-align: center;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    .print-hint strong { color: #F5A623; font-weight: 600; }
+
+    .card-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #F5A623, #FF8C00);
+      color: #0a0609;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 20px rgba(245,166,35,0.35);
+    }
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(245,166,35,0.5);
+    }
+
+    .export-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #F5A623;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 24px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(245,166,35,0.45);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .export-btn:hover {
+      background: rgba(245,166,35,0.08);
+      border-color: #F5A623;
+    }
+    .export-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ─────────────────────────────
+       CARD WRAPPER
+       3.5in × 2in at 96dpi = 336 × 192px
+       Displayed at 2.5× = 840 × 480px
+    ───────────────────────────── */
+    .card {
+      width: 840px;
+      height: 480px;
+      border-radius: 0;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 24px 80px rgba(0,0,0,0.7);
+    }
+
+    /* ══════════════════════════
+       FRONT — Brand Hook
+    ══════════════════════════ */
+    .card--front {
+      background: #080B12;
+    }
+
+    /* Grid overlay */
+    .front__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(30,42,64,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,42,64,0.5) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 10%, transparent 100%);
+    }
+
+    /* Glow orbs */
+    .front__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+    .front__orb--gold {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(245,166,35,0.22) 0%, transparent 65%);
+      top: -140px; left: -100px;
+    }
+    .front__orb--cyan {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,194,255,0.16) 0%, transparent 65%);
+      bottom: -100px; right: -60px;
+    }
+
+    /* Accent corner line */
+    .front__corner {
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 140px;
+      background: linear-gradient(to bottom, #F5A623, transparent);
+      border-radius: 0 0 2px 2px;
+    }
+    .front__corner-h {
+      position: absolute;
+      top: 0; left: 0;
+      height: 3px;
+      width: 200px;
+      background: linear-gradient(to right, #F5A623, transparent);
+    }
+
+    /* Bottom right accent */
+    .front__corner-br {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 3px;
+      height: 100px;
+      background: linear-gradient(to top, rgba(0,194,255,0.6), transparent);
+    }
+    .front__corner-br-h {
+      position: absolute;
+      bottom: 0; right: 0;
+      height: 3px;
+      width: 150px;
+      background: linear-gradient(to left, rgba(0,194,255,0.6), transparent);
+    }
+
+    .front__content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 60px;
+      text-align: center;
+    }
+
+    .front__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #4a556a;
+      margin-bottom: 20px;
+    }
+
+    .front__brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: #F0F4FF;
+      margin-bottom: 20px;
+    }
+    .front__brand span {
+      background: linear-gradient(135deg, #F5A623 0%, #FF6B35 40%, #00C2FF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .front__divider {
+      width: 333px;
+      height: 2px;
+      background: linear-gradient(90deg, #F5A623, #FF6B35 30%, #00C2FF);
+      border-radius: 1px;
+      margin-bottom: 20px;
+    }
+
+    .front__tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #7a8499;
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+    }
+    .front__tagline em {
+      color: #a0afc0;
+      font-style: normal;
+    }
+
+    .front__url {
+      position: absolute;
+      bottom: 28px;
+      right: 36px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2c3e5e;
+      letter-spacing: 0.5px;
+    }
+
+    /* ══════════════════════════
+       BACK — Contact Details
+    ══════════════════════════ */
+    .card--back {
+      background: #0F1520;
+    }
+
+    /* Subtle top gold bar */
+    .back__topbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #F5A623, #FF6B35 30%, #00C2FF 100%);
+    }
+
+    .back__bg-text {
+      position: absolute;
+      bottom: -20px;
+      right: 30px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 180px;
+      font-weight: 700;
+      color: rgba(245,166,35,0.04);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .back__content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0;
+      padding: 44px 44px 36px 48px;
+      align-items: center;
+    }
+
+    /* Left: Name + title + contact */
+    .back__left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding-right: 36px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .back__name-block {}
+
+    .back__initials {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #F5A623, #FF8C00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0a0609;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(245,166,35,0.4);
+    }
+
+    .back__name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #F0F4FF;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .back__title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #F5A623;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    /* Contact list */
+    .back__contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .back__contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back__contact-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .back__contact-icon svg {
+      width: 13px;
+      height: 13px;
+      stroke: #F5A623;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .back__contact-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #c8d0e0;
+      letter-spacing: 0.1px;
+    }
+
+    /* Right: QR + website */
+    .back__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 36px;
+      gap: 12px;
+    }
+
+    .back__qr-wrap {
+      width: 116px;
+      height: 116px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #qrcode canvas,
+    #qrcode img {
+      border-radius: 4px;
+    }
+
+    .back__qr-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #4a556a;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .back__website {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #F5A623;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Print Styles ── */
+    @media print {
+      @page {
+        size: 3.5in 2in;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        padding: 0;
+        gap: 0;
+        display: block;
+      }
+
+      h2, .print-hint, .print-btn, .card-group > h2 { display: none; }
+
+      .card-group {
+        display: block;
+      }
+
+      .card {
+        width: 3.5in;
+        height: 2in;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      /* Force background colors to print */
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      /* Re-scale font sizes for actual print dimensions */
+      .front__brand { font-size: 22px; }
+      .front__tagline { font-size: 6.5px; }
+      .front__eyebrow { font-size: 4.5px; letter-spacing: 1.5px; }
+      .front__url { font-size: 5.5px; bottom: 11px; right: 14px; }
+      .front__divider { width: 88px; height: 1px; margin-bottom: 8px; }
+      .front__content { padding: 16px 24px; }
+      .front__orb--gold { width: 160px; height: 160px; top: -60px; left: -40px; }
+      .front__orb--cyan  { width: 120px; height: 120px; bottom: -40px; right: -20px; }
+
+      .back__content { padding: 16px 16px 14px 18px; }
+      .back__initials { width: 18px; height: 18px; font-size: 6px; border-radius: 4px; margin-bottom: 6px; }
+      .back__name { font-size: 10px; margin-bottom: 2px; }
+      .back__title { font-size: 4.5px; letter-spacing: 0.4px; }
+      .back__contacts { gap: 3.5px; }
+      .back__contact-icon { width: 11px; height: 11px; border-radius: 3px; }
+      .back__contact-icon svg { width: 5px; height: 5px; stroke-width: 2.5; }
+      .back__contact-text { font-size: 5.5px; }
+      .back__left { padding-right: 14px; }
+      .back__right { padding-left: 14px; gap: 4px; }
+      .back__qr-wrap { width: 46px; height: 46px; padding: 3px; border-radius: 5px; }
+      .back__qr-label { font-size: 4.5px; }
+      .back__website { font-size: 5px; }
+      .back__topbar { height: 1.5px; }
+      .back__bg-text { font-size: 72px; bottom: -12px; right: -8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Controls ── -->
+  <p class="print-hint">
+    Business card preview — <strong>3.5 × 2 inches</strong> standard size.<br>
+    When printing, set paper size to <strong>3.5 × 2 in</strong>, margins to <strong>None</strong>, and enable <strong>"Background graphics"</strong>.
+  </p>
+
+  <!-- ─────────────────────────
+       FRONT SIDE
+  ───────────────────────── -->
+  <div class="card-group">
+    <h2>Front — Brand Hook</h2>
+    <div class="card card--front">
+
+      <div class="front__grid"></div>
+      <div class="front__orb front__orb--gold"></div>
+      <div class="front__orb front__orb--cyan"></div>
+
+      <div class="front__corner"></div>
+      <div class="front__corner-h"></div>
+      <div class="front__corner-br"></div>
+      <div class="front__corner-br-h"></div>
+
+      <div class="front__content">
+        <div class="front__eyebrow">Digital Marketing &amp; Web Development</div>
+        <div class="front__brand">Book<span>More</span>Pro</div>
+        <div class="front__divider"></div>
+        <div class="front__tagline">
+          More clicks. More calls. <em>More clients.</em>
+        </div>
+      </div>
+
+      <div class="front__url">BookMorePro.com</div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────
+       BACK SIDE
+  ───────────────────────── -->
+  <div class="card-group">
+    <h2>Back — Contact Details</h2>
+    <div class="card card--back">
+
+      <div class="back__topbar"></div>
+      <div class="back__bg-text">BMP</div>
+
+      <div class="back__content">
+
+        <!-- Left column -->
+        <div class="back__left">
+
+          <div class="back__name-block">
+            <div class="back__initials">BMP</div>
+            <div class="back__name">Farshad Darani</div>
+            <div class="back__title">Digital Marketing &amp; Web Development</div>
+          </div>
+
+          <div class="back__contacts">
+
+            <div class="back__contact">
+              <div class="back__contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <span class="back__contact-text">+1 (604) 230-9601</span>
+            </div>
+
+            <div class="back__contact">
+              <div class="back__contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <span class="back__contact-text">info@bookmorepro.com</span>
+            </div>
+
+            <div class="back__contact">
+              <div class="back__contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <span class="back__contact-text">BookMorePro.com</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right column: QR code -->
+        <div class="back__right">
+          <div class="back__qr-wrap">
+            <div id="qrcode"></div>
+          </div>
+          <div class="back__qr-label">Scan to visit</div>
+          <div class="back__website">BookMorePro.com</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="export-btn" id="exportFront">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      Export Front PNG
+    </button>
+    <button class="export-btn" id="exportBack">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      Export Back PNG
+    </button>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      Print Business Cards
+    </button>
+  </div>
+
+  <script>
+    // Generate QR code pointing to BookMorePro.com
+    new QRCode(document.getElementById('qrcode'), {
+      text: 'https://BookMorePro.com',
+      width: 100,
+      height: 100,
+      colorDark: '#080B12',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M,
+    });
+
+    function exportCard(selector, filename) {
+      const card = document.querySelector(selector);
+      const btn = event.currentTarget;
+      btn.disabled = true;
+      btn.textContent = 'Exporting…';
+      // Scale up 3× for print-quality resolution
+      html2canvas(card, {
+        scale: 3,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null,
+        logging: false,
+        onclone: function(clonedDoc) {
+          // html2canvas can't render background-clip:text — replace with SVG gradient text
+          const brandSpan = clonedDoc.querySelector('.front__brand span');
+          if (!brandSpan) return;
+          // Measure actual text width so SVG is exactly as wide as needed
+          const _mc = document.createElement('canvas');
+          const _ctx = _mc.getContext('2d');
+          _ctx.font = '700 56px "Space Grotesk", sans-serif';
+          const _measured = _ctx.measureText('More').width - (2.24 * 3);
+          const svgWidth = Math.ceil(_measured) + 2; // +2px safety margin
+
+          const ns = 'http://www.w3.org/2000/svg';
+          const svg = clonedDoc.createElementNS(ns, 'svg');
+          svg.setAttribute('xmlns', ns);
+          svg.setAttribute('width', String(svgWidth));
+          svg.setAttribute('height', '56');
+          svg.style.cssText = 'vertical-align:top; overflow:visible; display:inline-block;';
+          const defs = clonedDoc.createElementNS(ns, 'defs');
+          const grad = clonedDoc.createElementNS(ns, 'linearGradient');
+          grad.setAttribute('id', 'moreGrad');
+          grad.setAttribute('x1', '0%'); grad.setAttribute('y1', '0%');
+          grad.setAttribute('x2', '100%'); grad.setAttribute('y2', '0%');
+          [['0%','#F5A623'],['40%','#FF6B35'],['100%','#00C2FF']].forEach(([offset, color]) => {
+            const s = clonedDoc.createElementNS(ns, 'stop');
+            s.setAttribute('offset', offset);
+            s.setAttribute('stop-color', color);
+            grad.appendChild(s);
+          });
+          defs.appendChild(grad);
+          svg.appendChild(defs);
+          const textEl = clonedDoc.createElementNS(ns, 'text');
+          textEl.setAttribute('fill', 'url(#moreGrad)');
+          textEl.setAttribute('font-family', 'Space Grotesk, sans-serif');
+          textEl.setAttribute('font-size', '56');
+          textEl.setAttribute('font-weight', '700');
+          textEl.setAttribute('letter-spacing', '-2.24');
+          textEl.setAttribute('y', '50');
+          textEl.textContent = 'More';
+          svg.appendChild(textEl);
+          brandSpan.replaceWith(svg);
+        },
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        btn.disabled = false;
+        btn.innerHTML = '✓ Downloaded!';
+        setTimeout(() => {
+          btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> ${filename.includes('front') ? 'Export Front PNG' : 'Export Back PNG'}`;
+        }, 2500);
+      });
+    }
+
+    document.getElementById('exportFront').addEventListener('click', function(event) {
+      exportCard('.card--front', 'bookmorepro-card-front.png');
+    });
+    document.getElementById('exportBack').addEventListener('click', function(event) {
+      exportCard('.card--back', 'bookmorepro-card-back.png');
+    });
+  </script>
+
+</body>
+</html>

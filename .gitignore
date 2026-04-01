@@ -137,3 +137,22 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Affinity Designer source files
+*.af
+
+# Design exports / PDFs / temp images
+*.pdf
+Screenshot*.png
+1.png
+Final.png
+Final-*.pdf
+Test.png
+bmp-logo*.png
+logo.png
+logo-bmp-test.png
+test.af
