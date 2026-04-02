@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background circle -->
+  <rect width="64" height="64" rx="14" fill="#080B12"/>
+  <!-- Bar 1 — top — white -->
+  <rect x="10" y="18" width="44" height="7" rx="3.5" fill="#F0F4FF"/>
+  <!-- Bar 2 — middle — cyan -->
+  <rect x="10" y="29" width="44" height="7" rx="3.5" fill="#00C2FF"/>
+  <!-- Bar 3 — bottom — white -->
+  <rect x="10" y="40" width="44" height="7" rx="3.5" fill="#F0F4FF"/>
+</svg>
