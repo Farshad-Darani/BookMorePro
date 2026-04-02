@@ -2601,10 +2601,10 @@ a.contact__detail:hover {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.3px;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.55); /* overrides .nav__logo span { color: gold } */
   margin-left: 12px;
 }
-.footer__wordmark--accent { color: var(--cyan); }
+.footer__wordmark .footer__wordmark--accent { color: var(--cyan); }
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(1),
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(3) { background: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(2) { background: #5DDFFF; box-shadow: 0 0 8px rgba(0,194,255,0.6); }
