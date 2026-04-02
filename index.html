@@ -134,14 +134,14 @@
                     <div class="hero__stat-divider"></div>
                     <div class="hero__stat">
                         <div class="hero__stat-num-wrap">
-                            <span class="hero__stat-num" data-count="10">0</span><span class="hero__stat-suffix">+</span>
+                            <span class="hero__stat-num" data-count="20">0</span><span class="hero__stat-suffix">+</span>
                         </div>
                         <span class="hero__stat-label">Projects Delivered</span>
                     </div>
                     <div class="hero__stat-divider"></div>
                     <div class="hero__stat">
                         <div class="hero__stat-num-wrap">
-                            <span class="hero__stat-num hero__stat-num--static">#1</span>
+                            <span class="hero__stat-num" data-count="1" data-from="20" data-prefix="#">20</span>
                         </div>
                         <span class="hero__stat-label">Google Rankings</span>
                     </div>
@@ -480,20 +480,20 @@
           <defs>
             <linearGradient id="chartLineGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%"   stop-color="#0F1520" stop-opacity="1"/>
-              <stop offset="40%"  stop-color="#006E8A" stop-opacity="0.8"/>
-              <stop offset="60%"  stop-color="#006E8A" stop-opacity="0.8"/>
+              <stop offset="45%"  stop-color="#006E8A" stop-opacity="0.5"/>
+              <stop offset="55%"  stop-color="#006E8A" stop-opacity="0.5"/>
               <stop offset="100%" stop-color="#0F1520" stop-opacity="1"/>
             </linearGradient>
           </defs>
           <polygon
             fill="#080B12"
-            points="0,800 1440,800 1440,220 1260,220 1260,520 1080,520 1080,588 900,588 900,700 720,700 720,665 540,665 540,725 360,725 360,700 180,700 180,760 0,760"
+            points="0,800 1440,800 1440,220 1260,220 1260,520 1080,520 1080,618 900,618 900,560 720,560 720,665 540,665 540,725 360,725 360,700 180,700 180,760 0,760"
           />
           <polyline
             fill="none"
             stroke="url(#chartLineGrad)"
             stroke-width="3"
-            points="0,760 180,760 180,700 360,700 360,725 540,725 540,665 720,665 720,700 900,700 900,588 1080,588 1080,520 1260,520 1260,220 1440,220"
+            points="0,760 180,760 180,700 360,700 360,725 540,725 540,665 720,665 720,560 900,560 900,618 1080,618 1080,520 1260,520 1260,220 1440,220"
           />
         </svg>
     </section>
@@ -743,7 +743,7 @@
                     <h2 class="section-title about__title" data-aos="fade-up" data-aos-delay="100">Building Digital Products<br><span class="gradient-text">That Actually Work</span></h2>
                     <p class="about__subtitle section-subtitle">Engineer. Marketer. Builder — all in one.</p>
                 </div>
-                    <p class="about__bio" data-aos="fade-up" data-aos-delay="150">, a Software Engineer and Digital Marketing specialist based in Vancouver, BC.
+                    <p class="about__bio" data-aos="fade-up" data-aos-delay="150">a Software Engineer and Digital Marketing specialist based in Vancouver, BC.
                         With 6+ years of experience across web, mobile, and marketing — I build production-grade platforms that convert
                         visitors into clients.
                     </p>
@@ -1021,6 +1021,45 @@
             </div>
         </div>
     </footer>
+
+    <!-- ── AI Chat Widget ───────────────────────────────────── -->
+    <div id="chat-widget" class="chat-widget" role="dialog" aria-label="Chat with BookMorePro AI" aria-hidden="true">
+        <div class="chat-widget__panel">
+            <div class="chat-widget__header">
+                <div class="chat-widget__header-info">
+                    <div class="chat-widget__logo" aria-hidden="true">
+                        <span class="chat-widget__logo-bar"></span>
+                        <span class="chat-widget__logo-bar"></span>
+                        <span class="chat-widget__logo-bar"></span>
+                    </div>
+                    <p class="chat-widget__name">BookMorePro AI</p>
+                </div>
+            </div>
+            <div class="chat-widget__messages" id="chat-messages" aria-live="polite" aria-atomic="false">
+                <div class="chat-msg chat-msg--ai">
+                    <p>Hi! I'm the BookMorePro AI. Ask me anything about how we can help you get more bookings. 👋</p>
+                </div>
+            </div>
+            <form class="chat-widget__form" id="chat-form" autocomplete="off">
+                <input
+                    type="text"
+                    id="chat-input"
+                    class="chat-widget__input"
+                    placeholder="Ask me anything…"
+                    maxlength="500"
+                    required
+                    aria-label="Your message"
+                />
+                <button type="submit" class="chat-widget__send" aria-label="Send message">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </form>
+        </div>
+        <button class="chat-widget__fab" id="chat-fab" aria-label="Open AI chat" aria-expanded="false">
+            <svg class="chat-widget__fab-icon chat-widget__fab-icon--chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg class="chat-widget__fab-icon chat-widget__fab-icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+    </div>
 
     <!-- AOS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

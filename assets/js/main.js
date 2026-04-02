@@ -19,6 +19,8 @@ window.addEventListener('load', () => {
     initGalaxyStars();
     initBarReveal();
     initWorkSlider();
+    // Start hero counters shortly after loader finishes
+    setTimeout(initHeroCounters, 200);
   }, 1400);
 });
 
@@ -250,23 +252,20 @@ function initWorkSlider() {
   const nextBtn = document.getElementById('workNext');
   const GAP     = 24;
   const TOTAL   = origSlides.length;
-  const CLONES  = 2;
+  const CLONES  = 1; // 1 clone on each side is enough — avoids ordering issues
 
-  // Prepend clones of the last CLONES slides (for seamless left-wrap)
-  for (let i = TOTAL - CLONES; i < TOTAL; i++) {
-    const c = origSlides[i].cloneNode(true);
-    c.setAttribute('aria-hidden', 'true');
-    track.insertBefore(c, track.firstChild);
-  }
-  // Append clones of the first CLONES slides (for seamless right-wrap)
-  for (let i = 0; i < CLONES; i++) {
-    const c = origSlides[i].cloneNode(true);
-    c.setAttribute('aria-hidden', 'true');
-    track.appendChild(c);
-  }
+  // Prepend clone of the LAST real slide (appears left of first real slide)
+  const prePre = origSlides[TOTAL - 1].cloneNode(true);
+  prePre.setAttribute('aria-hidden', 'true');
+  track.insertBefore(prePre, track.firstChild);
+
+  // Append clone of the FIRST real slide (appears right of last real slide)
+  const postPost = origSlides[0].cloneNode(true);
+  postPost.setAttribute('aria-hidden', 'true');
+  track.appendChild(postPost);
 
   const slides = Array.from(track.querySelectorAll('.work-slide'));
-  let current  = CLONES; // index CLONES = first real slide
+  let current  = CLONES; // index 1 = first real slide
   let startX   = 0;
   let isDragging  = false;
   let dragOffset  = 0;
@@ -283,24 +282,46 @@ function initWorkSlider() {
     track.style.transform = `translateX(${centerOff() - idx * (slW() + GAP)}px)`;
   }
 
-  function activate(idx) {
+  // Freeze / thaw individual slide transitions to prevent blink during silent snap
+  function freezeSlides() {
+    slides.forEach(s => {
+      s.style.transition = 'none';
+      s.querySelectorAll('.work-slide__phone, .work-slide__img').forEach(el => {
+        el.style.transition = 'none';
+      });
+    });
+  }
+  function thawSlides() {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      slides.forEach(s => {
+        s.style.transition = '';
+        s.querySelectorAll('.work-slide__phone, .work-slide__img').forEach(el => {
+          el.style.transition = '';
+        });
+      });
+    }));
+  }
+
+  function activate(idx, instant) {
+    if (instant) freezeSlides();
     slides.forEach((s, i) => s.classList.toggle('active', i === idx));
     dots.forEach((d, i)   => d.classList.toggle('active', i === realIdx(idx)));
+    if (instant) thawSlides();
   }
 
   function goTo(idx) {
     current = idx;
     setPos(current, true);
-    activate(current);
+    activate(current, false);
   }
 
   // When a clone slide finishes its transition, snap silently to the real counterpart
   track.addEventListener('transitionend', (e) => {
     if (e.target !== track || e.propertyName !== 'transform') return;
     if (current < CLONES) {
-      current += TOTAL; setPos(current, false); activate(current);
+      current += TOTAL; setPos(current, false); activate(current, true);
     } else if (current >= CLONES + TOTAL) {
-      current -= TOTAL; setPos(current, false); activate(current);
+      current -= TOTAL; setPos(current, false); activate(current, true);
     }
   });
 
@@ -380,46 +401,39 @@ function initWorkSlider() {
 // ============================================================
 // COUNTER ANIMATION
 // ============================================================
-(function initCounters() {
+function initHeroCounters() {
   const counters = document.querySelectorAll('.hero__stat-num[data-count]');
   if (!counters.length) return;
-
-  let started = false;
 
   function easeOutQuart(t) {
     return 1 - Math.pow(1 - t, 4);
   }
 
   function animateCounter(el) {
-    const target = parseInt(el.dataset.count, 10);
-    const duration = 1800;
-    let startTime = null;
+    const target    = parseInt(el.dataset.count, 10);
+    const from      = el.dataset.from ? parseInt(el.dataset.from, 10) : 0;
+    const prefix    = el.dataset.prefix || '';
+    const duration  = 1800;
+    const countDown = from > target;
+    let startTime   = null;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeOutQuart(progress);
-      el.textContent = Math.floor(easedProgress * target);
+      const elapsed        = timestamp - startTime;
+      const progress       = Math.min(elapsed / duration, 1);
+      const easedProgress  = easeOutQuart(progress);
+      const value = countDown
+        ? Math.round(from - easedProgress * (from - target))
+        : Math.floor(easedProgress * target);
+      el.textContent = prefix + value;
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      else el.textContent = prefix + target;
     }
     requestAnimationFrame(step);
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !started) {
-        started = true;
-        counters.forEach((counter) => animateCounter(counter));
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const heroStats = document.querySelector('.hero__stats');
-  if (heroStats) observer.observe(heroStats);
-})();
+  counters.forEach(animateCounter);
+}
 
 // ============================================================
 // CARD TILT EFFECT (3D on hover — lerp smoothed)
@@ -694,6 +708,107 @@ function initWorkSlider() {
 })();
 
 // ============================================================
+// AI CHAT WIDGET
+// ============================================================
+function initChatWidget() {
+  const widget   = document.getElementById('chat-widget');
+  const fab      = document.getElementById('chat-fab');
+  const closeBtn = widget && widget.querySelector('.chat-widget__close');
+  const form     = document.getElementById('chat-form');
+  const input    = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+
+  if (!widget || !fab || !form || !input || !messages) return;
+
+  let history  = [];
+  let isOpen   = false;
+  let isBusy   = false;
+
+  function toggleChat(open) {
+    isOpen = (open !== undefined) ? open : !isOpen;
+    widget.classList.toggle('chat-widget--open', isOpen);
+    fab.setAttribute('aria-expanded', String(isOpen));
+    widget.setAttribute('aria-hidden', String(!isOpen));
+    if (isOpen) setTimeout(() => input.focus(), 320);
+  }
+
+  fab.addEventListener('click', () => toggleChat());
+  closeBtn.addEventListener('click', () => toggleChat(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) toggleChat(false);
+  });
+  document.addEventListener('click', (e) => {
+    if (isOpen && !widget.contains(e.target)) toggleChat(false);
+  });
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function appendMessage(text, role) {
+    const div = document.createElement('div');
+    div.className = 'chat-msg chat-msg--' + (role === 'user' ? 'user' : 'ai');
+    div.innerHTML = '<p>' + escapeHtml(text) + '</p>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'chat-msg chat-msg--typing';
+    div.id = 'chat-typing';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('chat-typing');
+    if (el) el.remove();
+  }
+
+  const sendBtn = form.querySelector('.chat-widget__send');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text || isBusy) return;
+
+    input.value = '';
+    appendMessage(text, 'user');
+    history.push({ role: 'user', text });
+
+    isBusy = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    try {
+      const res = await fetch('chat.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, history: history.slice(-10) }),
+      });
+      const data = await res.json();
+      removeTyping();
+      const reply = data.reply || data.error || 'Sorry, something went wrong. Please try again.';
+      appendMessage(reply, 'ai');
+      if (data.reply) history.push({ role: 'model', text: data.reply });
+    } catch {
+      removeTyping();
+      appendMessage('Network error — please check your connection and try again.', 'ai');
+    } finally {
+      isBusy = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  });
+}
+
+// ============================================================
 // AOS INIT
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -706,4 +821,5 @@ document.addEventListener('DOMContentLoaded', () => {
       delay: 0,
     });
   }
+  initChatWidget();
 });
