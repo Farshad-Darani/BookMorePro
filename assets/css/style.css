@@ -2750,6 +2750,7 @@ a.contact__detail:hover {
   flex-direction: column;
   align-items: flex-end;
   gap: 14px;
+  pointer-events: none; /* panel is 360px wide in layout even when hidden — this stops the invisible area blocking footer clicks */
 }
 
 /* FAB */
@@ -2758,6 +2759,7 @@ a.contact__detail:hover {
   width: 56px;
   height: 56px;
   border-radius: 50%;
+  pointer-events: auto; /* restore — FAB must always be clickable */
   background: var(--grad-gold);
   border: none;
   cursor: pointer;
