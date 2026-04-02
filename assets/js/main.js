@@ -586,7 +586,9 @@ function initHeroCounters() {
         headers: { 'Accept': 'application/json' },
       });
 
-      if (response.ok) {
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.ok !== false) {
         form.reset();
         if (successMsg) {
           successMsg.classList.add('show');
@@ -596,13 +598,13 @@ function initHeroCounters() {
         // Fallback — open email client
         const subject = encodeURIComponent('Inquiry from BookMorePro.com');
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-        window.open(`mailto:d1.farshad@gmail.com?subject=${subject}&body=${body}`);
+        window.open(`mailto:info@bookmorepro.com?subject=${subject}&body=${body}`);
       }
     } catch {
       // Network error — open email client
       const subject = encodeURIComponent('Inquiry from BookMorePro.com');
       const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-      window.open(`mailto:d1.farshad@gmail.com?subject=${subject}&body=${body}`);
+      window.open(`mailto:info@bookmorepro.com?subject=${subject}&body=${body}`);
     } finally {
       btnSpan.textContent = originalText;
       submitBtn.disabled = false;
