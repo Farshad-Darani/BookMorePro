@@ -1394,7 +1394,7 @@ HTML:
    PROCESS
    ============================================================ */
 .process {
-  padding: var(--section-py) 0 calc(var(--section-py) + 150px);
+  padding: var(--section-py) 0 calc(var(--section-py) + 210px);
   background: var(--surface);
   border-top: none;
   border-bottom: none;
@@ -1426,7 +1426,7 @@ HTML:
   margin-left: calc(-1 * var(--container-px));
   margin-right: calc(-1 * var(--container-px));
   position: relative;
-  top: -100px;
+  top: -180px;
   z-index: 1;
   box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5);
   clip-path: inset(-80px -80px 0 -80px);
@@ -1442,7 +1442,7 @@ HTML:
 .process__content > .bar-reveal {
   display: flex;
   justify-content: flex-start;
-  margin-top: 0;
+  margin-top: 80px;
   margin-bottom: 0;
   position: relative;
   z-index: 1;
@@ -1450,7 +1450,7 @@ HTML:
 }
 
 .process .section-header {
-  margin-top: -190px;
+  margin-top: -260px;
   position: relative;
   z-index: 2;
 }
@@ -1884,6 +1884,7 @@ HTML:
   box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5);
   clip-path: inset(-80px -80px 0 -80px);
   display: block;
+  pointer-events: none; /* invisible overflow must not block elements below */
 }
 .about__right {
   overflow: visible;
@@ -1893,6 +1894,7 @@ HTML:
 .about__content > * {
   position: relative;
   z-index: 1;
+  pointer-events: auto; /* restore interactivity for all actual children */
 }
 
 /* ── body: 2-col grid ── */
@@ -2309,6 +2311,7 @@ HTML:
 .contact {
   padding: calc(var(--section-py) - 40px) 0 var(--section-py);
   position: relative;
+  z-index: 5; /* above .about z-index:3 so clicks aren't blocked by about stacking context */
   overflow: hidden;
 }
 
@@ -2423,6 +2426,12 @@ a.contact__detail:hover {
   color: var(--gold);
   background: rgba(245,166,35,0.08);
 }
+/* Always interactive – override any inherited pointer-events:none from AOS parent [data-aos] */
+.contact__social a,
+.form-social-row a,
+.footer__social a {
+  pointer-events: auto;
+}
 
 .form-social-row {
   display: flex;
@@ -2535,6 +2544,8 @@ a.contact__detail:hover {
   background: var(--surface);
   border-top: 1px solid var(--border);
   padding: 48px 0 32px;
+  position: relative;
+  z-index: 5; /* above .about z-index:3 */
 }
 
 .footer__top {
