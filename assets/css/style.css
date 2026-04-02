@@ -2596,15 +2596,15 @@ a.contact__detail:hover {
 
 /* Smaller bar-logo in footer */
 .footer__bar-logo .bar-logo__bar { width: 38px; height: 3.5px; }
-.footer__wordmark {
+.nav__logo .footer__wordmark {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.3px;
-  color: rgba(255,255,255,0.55); /* overrides .nav__logo span { color: gold } */
+  color: rgba(255,255,255,0.55);
   margin-left: 12px;
 }
-.footer__wordmark .footer__wordmark--accent { color: var(--cyan); }
+.nav__logo .footer__wordmark .footer__wordmark--accent { color: var(--cyan); }
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(1),
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(3) { background: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(2) { background: #5DDFFF; box-shadow: 0 0 8px rgba(0,194,255,0.6); }
