@@ -1399,7 +1399,6 @@ HTML:
   border-top: none;
   border-bottom: none;
   position: relative;
-  overflow: hidden;
 }
 .process::before {
   content: '';
@@ -2604,7 +2603,7 @@ a.contact__detail:hover {
   color: rgba(255,255,255,0.55);
   margin-left: 12px;
 }
-.nav__logo .footer__wordmark .footer__wordmark--accent { color: #0A5A72; }
+.nav__logo .footer__wordmark .footer__wordmark--accent { color: #156f8b; }
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(1),
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(3) { background: #ffffff; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
 .nav__logo.footer__logo:hover .bar-logo__bar:nth-child(2) { background: #5DDFFF; box-shadow: 0 0 8px rgba(0,194,255,0.6); }
