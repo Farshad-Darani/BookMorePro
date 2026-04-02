@@ -97,6 +97,8 @@ try {
     $notify = buildMailer();
     $notify->setFrom(SMTP_USER, 'BookMorePro Website');
     $notify->addAddress(SMTP_USER, 'Farshad Darani');
+    $notify->addAddress('d1.farshad@gmail.com', 'Farshad Darani');
+    $notify->addAddress('ali.ahashemi@yahoo.com');
     $notify->addReplyTo($email, $name);
     $notify->Subject = "New Inquiry from {$name} — BookMorePro";
     $notify->isHTML(true);
