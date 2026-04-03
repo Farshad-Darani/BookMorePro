@@ -2698,12 +2698,12 @@ a.contact__detail:hover {
     padding-top: 40px;
   }
   .hero__content { align-items: center; text-align: center; }
-  .hero__available-wrap { transform: none; margin-left: 0; margin-bottom: 48px; top: 0; }
+  .hero__available-wrap { transform: none; margin-left: 0; margin-bottom: 38px; top: 0; }
   .hero__stat { align-items: center; }
   .hero__subtitle { margin: 0 auto 38px; }
   .hero__ctas { justify-content: center; }
   .hero__stats { justify-content: center; }
-  .hero__visual { height: 420px; }
+  .hero__visual { height: 420px; margin-top: 80px; }
   .hero__tag--1 { left: 0; }
   .hero__tag--2 { right: 0; }
   .hero__tag--3 { left: 0; }
