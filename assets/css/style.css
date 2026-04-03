@@ -770,7 +770,7 @@ HTML:
 }
 
 .hero__subtitle {
-  font-size: clamp(15px, 1.8vw, 18px);
+  font-size: clamp(17px, 2vw, 20px);
   color: var(--text-muted);
   line-height: 1.75;
   max-width: 600px;
