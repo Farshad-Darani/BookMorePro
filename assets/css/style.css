@@ -525,7 +525,7 @@ input, textarea, select {
   cursor: pointer;
   transition: var(--t);
 }
-.mobile-menu__close:hover { border-color: var(--gold); color: var(--gold); }
+.mobile-menu__close:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
 .mobile-menu__links {
   display: flex;
   flex-direction: column;
