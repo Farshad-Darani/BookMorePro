@@ -770,7 +770,7 @@ HTML:
 }
 
 .hero__subtitle {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: clamp(17px, 2vw, 18px);
   color: var(--text-muted);
   line-height: 1.75;
   max-width: 600px;
@@ -830,6 +830,30 @@ HTML:
   font-size: 12px;
   color: var(--text-muted);
   letter-spacing: 0.5px;
+}
+
+/* Mobile skill chips (hidden on desktop) */
+.hero__chips {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+.hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 21, 32, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .hero__stat-divider {
@@ -2706,7 +2730,8 @@ a.contact__detail:hover {
   .hero__subtitle { margin: 0 auto 38px; }
   .hero__ctas { justify-content: center; }
   .hero__stats { justify-content: center; }
-  .hero__visual { height: 420px; margin-top: 80px; }
+  .hero__chips { display: flex; }
+  .hero__visual { height: 420px; margin-top: 60px; }
   .hero__tag--1 { left: 0; }
   .hero__tag--2 { right: 0; }
   .hero__tag--3 { left: 0; }
