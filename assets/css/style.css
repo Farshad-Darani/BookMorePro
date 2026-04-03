@@ -2698,7 +2698,7 @@ a.contact__detail:hover {
     padding-top: 40px;
   }
   .hero__content { align-items: center; text-align: center; }
-  .hero__available-wrap { transform: none; margin-left: 0; margin-bottom: 28px; top: 0; }
+  .hero__available-wrap { transform: none; margin-left: 0; margin-bottom: 48px; top: 0; }
   .hero__stat { align-items: center; }
   .hero__subtitle { margin: 0 auto 38px; }
   .hero__ctas { justify-content: center; }
@@ -2733,7 +2733,7 @@ a.contact__detail:hover {
 
   .section-header { margin-bottom: 48px; }
 
-  .hero__title { font-size: clamp(32px, 8vw, 52px); }
+  .hero__title { font-size: clamp(36px, 9vw, 52px); }
   .hero__tag { display: none; }
   .hero__orbit { display: none; }
   .hero__ring { width: 260px; height: 260px; }
