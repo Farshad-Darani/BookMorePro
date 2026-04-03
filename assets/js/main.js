@@ -738,7 +738,7 @@ function initChatWidget() {
   }
 
   fab.addEventListener('click', () => toggleChat());
-  closeBtn.addEventListener('click', () => toggleChat(false));
+  if (closeBtn) closeBtn.addEventListener('click', () => toggleChat(false));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isOpen) toggleChat(false);
   });
