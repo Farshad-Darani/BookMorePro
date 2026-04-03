@@ -14,7 +14,7 @@ if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === '') {
     echo json_encode(['error' => 'AI service is not yet configured.']);
     exit;
 }
-define('GEMINI_MODEL',   'gemini-2.0-flash-lite');
+define('GEMINI_MODEL',   'gemini-2.5-flash');
 define('MAX_INPUT',      500);
 define('RATE_LIMIT',     20);   // max messages per visitor per window
 define('RATE_WINDOW',    600);  // window in seconds (10 minutes)
