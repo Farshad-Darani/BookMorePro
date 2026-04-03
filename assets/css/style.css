@@ -486,10 +486,11 @@ input, textarea, select {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--text);
+  background: var(--text-muted);
   border-radius: 1px;
   transition: var(--t);
 }
+.nav__hamburger:hover span { background: var(--text); }
 .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
