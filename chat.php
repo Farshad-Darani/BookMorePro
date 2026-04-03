@@ -3,10 +3,18 @@ header('Content-Type: application/json');
 header('X-Content-Type-Options: nosniff');
 
 // ── Config ───────────────────────────────────────────────────
-// 1. Get your free API key at: https://aistudio.google.com/app/apikey
-// 2. Replace the placeholder below with your actual key
-define('GEMINI_API_KEY', 'AIzaSyDuRK1TuoZnni_imVSBu1djOn6YKE1uU8Y');
-define('GEMINI_MODEL',   'gemini-1.5-flash');
+// API key is stored in /chat-config.php (outside the repo) on the server.
+// Create that file on Hostinger with: <?php define('GEMINI_API_KEY', 'your-key-here');
+$configFile = __DIR__ . '/chat-config.php';
+if (file_exists($configFile)) {
+    require_once $configFile;
+}
+if (!defined('GEMINI_API_KEY') || GEMINI_API_KEY === '') {
+    http_response_code(503);
+    echo json_encode(['error' => 'AI service is not yet configured.']);
+    exit;
+}
+define('GEMINI_MODEL',   'gemini-2.0-flash-lite');
 define('MAX_INPUT',      500);
 define('RATE_LIMIT',     20);   // max messages per visitor per window
 define('RATE_WINDOW',    600);  // window in seconds (10 minutes)
