@@ -91,16 +91,6 @@ function initCursor() {
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close button inside menu
-    const closeBtn = document.getElementById('mobileMenuClose');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    }
-
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');

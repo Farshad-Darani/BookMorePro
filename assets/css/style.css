@@ -496,7 +496,10 @@ input, textarea, select {
 /* Mobile Menu */
 .mobile-menu {
   position: fixed;
-  inset: 0;
+  top: var(--nav-h);
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: rgba(8,11,18,0.98);
   backdrop-filter: blur(24px);
   z-index: 10000;
@@ -509,23 +512,6 @@ input, textarea, select {
 .mobile-menu.open {
   transform: translateX(0);
 }
-.mobile-menu__close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.04);
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--t);
-}
-.mobile-menu__close:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
 .mobile-menu__links {
   display: flex;
   flex-direction: column;
