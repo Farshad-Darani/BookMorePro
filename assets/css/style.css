@@ -407,29 +407,29 @@ input, textarea, select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   flex-shrink: 0;
 }
 .bar-logo__bar {
   display: block;
-  height: 4.5px;
+  height: 4px;
   border-radius: 2px;
 }
 .bar-logo__bar:nth-child(1) {
-  width: 50px;
-  margin-left: 4px;
+  width: 42px;
+  margin-left: 3px;
   background: var(--text-muted);
   transition: background 0.3s;
 }
 .bar-logo__bar:nth-child(2) {
-  width: 50px;
-  margin-left: -8px;
+  width: 42px;
+  margin-left: -7px;
   background: #0A5A72;
   transition: background 0.3s;
 }
 .bar-logo__bar:nth-child(3) {
-  width: 50px;
-  margin-left: 8px;
+  width: 42px;
+  margin-left: 7px;
   background: var(--text-muted);
   transition: background 0.3s;
 }
@@ -2690,6 +2690,8 @@ a.contact__detail:hover {
   .btn--nav { display: none; }
   .nav__container .galaxy-button { display: none; }
   .nav__hamburger { display: flex; }
+  .bar-logo__bar { width: 32px !important; height: 3px !important; }
+  .bar-logo { gap: 3px; }
 
   .hero__container {
     grid-template-columns: 1fr;
