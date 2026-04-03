@@ -527,7 +527,8 @@ input, textarea, select {
   padding: 8px 24px;
 }
 .mobile-menu__link:hover { color: var(--text); }
-.mobile-menu__cta { margin-top: 24px; font-size: 16px !important; }
+.mobile-menu__cta { margin-top: 24px; }
+.mobile-menu__cta.galaxy-button button { height: 52px; padding: 0 36px; font-size: 1rem; }
 
 /* ============================================================
    HERO

@@ -129,7 +129,11 @@
             <a href="#process" class="mobile-menu__link">Process</a>
             <a href="#about" class="mobile-menu__link">About</a>
             <a href="#contact" class="mobile-menu__link">Contact</a>
-            <a href="#contact" class="btn btn--primary mobile-menu__cta">Book a Strategy Call</a>
+            <div class="galaxy-button mobile-menu__cta">
+              <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow='';">
+                <span class="text">Book a Strategy Call</span>
+              </button>
+            </div>
         </div>
     </div>
 
