@@ -88,6 +88,7 @@ function initCursor() {
     hamburger.addEventListener('click', () => {
       const isOpen = hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open', isOpen);
+      nav.classList.toggle('menu-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
@@ -95,6 +96,7 @@ function initCursor() {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
         mobileMenu.classList.remove('open');
+        nav.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
     });
@@ -105,6 +107,7 @@ function initCursor() {
     if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
+      nav.classList.remove('menu-open');
       document.body.style.overflow = '';
     }
   });

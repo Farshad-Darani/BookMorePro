@@ -374,7 +374,8 @@ input, textarea, select {
   border-bottom: 1px solid transparent;
 }
 
-.nav.scrolled {
+.nav.scrolled,
+.nav.menu-open {
   background: rgba(8, 11, 18, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
