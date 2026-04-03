@@ -496,19 +496,15 @@ input, textarea, select {
 /* Mobile Menu */
 .mobile-menu {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(360px, 100vw);
+  inset: 0;
   background: rgba(8,11,18,0.98);
   backdrop-filter: blur(24px);
-  z-index: 99;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: -8px 0 40px rgba(0,0,0,0.5);
 }
 .mobile-menu.open {
   transform: translateX(0);
