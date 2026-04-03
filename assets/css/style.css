@@ -2697,6 +2697,7 @@ a.contact__detail:hover {
     gap: 60px;
     padding-top: 40px;
   }
+  .hero__content { align-items: center; text-align: center; }
   .hero__subtitle { margin: 0 auto 38px; }
   .hero__ctas { justify-content: center; }
   .hero__stats { justify-content: center; }
