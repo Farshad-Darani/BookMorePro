@@ -2686,7 +2686,7 @@ a.contact__detail:hover {
 @media (max-width: 900px) {
   .nav__links { display: none; }
   .btn--nav { display: none; }
-  .galaxy-button { display: none; }
+  .nav__container .galaxy-button { display: none; }
   .nav__hamburger { display: flex; }
 
   .hero__container {
