@@ -6,13 +6,13 @@ header('X-Content-Type-Options: nosniff');
 // 1. Get your free API key at: https://aistudio.google.com/app/apikey
 // 2. Replace the placeholder below with your actual key
 define('GEMINI_API_KEY', 'AIzaSyDuRK1TuoZnni_imVSBu1djOn6YKE1uU8Y');
-define('GEMINI_MODEL',   'gemini-2.0-flash');
+define('GEMINI_MODEL',   'gemini-1.5-flash');
 define('MAX_INPUT',      500);
 define('RATE_LIMIT',     20);   // max messages per visitor per window
 define('RATE_WINDOW',    600);  // window in seconds (10 minutes)
 
 // ── Origin check — only accept requests from your own domain ─
-$allowed = 'bookmorepro.com'; // ← change to your actual domain when live (e.g. bookmoreinfo.com)
+$allowed = 'bookmorepro.com'; 
 $origin  = $_SERVER['HTTP_ORIGIN']  ?? '';
 $referer = $_SERVER['HTTP_REFERER'] ?? '';
 $host    = parse_url($origin ?: $referer, PHP_URL_HOST) ?? '';
@@ -139,6 +139,7 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($httpCode !== 200) {
+    error_log('Gemini API error ' . $httpCode . ': ' . $response);
     http_response_code(502);
     echo json_encode(['error' => 'AI service unavailable. Please try again.']);
     exit;
