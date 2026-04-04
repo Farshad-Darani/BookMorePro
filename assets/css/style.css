@@ -1202,7 +1202,7 @@ HTML:
 .bar-reveal__text {
   display: inline-block;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 22px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -2749,7 +2749,7 @@ a.contact__detail:hover {
   .hero__ctas { justify-content: center; }
   .hero__stats { justify-content: center; }
   .hero__chips { display: flex; }
-  .hero__visual { height: 420px; margin-top: 0; }
+  .hero__visual { height: 420px; margin-top: -90px; }
   .hero__tag--1 { left: 0; }
   .hero__tag--2 { right: 0; }
   .hero__tag--3 { left: 0; }
