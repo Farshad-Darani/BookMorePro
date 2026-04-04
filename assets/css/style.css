@@ -2779,6 +2779,7 @@ a.contact__detail:hover {
   :root { --section-py: 70px; }
 
   .section-header { margin-bottom: 48px; }
+  .bar-reveal { margin-left: auto; margin-right: auto; }
   .bar-reveal__bar { width: 3px !important; }
   .bar-reveal__bar:nth-child(1),
   .bar-reveal__bar:nth-child(2),
