@@ -1176,26 +1176,26 @@ HTML:
 
 .bar-reveal__bar {
   display: block;
-  width: 3px;
+  width: 3.5px;
   border-radius: 2px;
   transform: scaleY(0);
 }
 .bar-reveal__bar:nth-child(1) {
   background: #F0F4FF;
   transform-origin: top center;
-  height: 32px;
+  height: 36px;
   margin-bottom: 4px;
 }
 .bar-reveal__bar:nth-child(2) {
   background: #00C2FF;
   transform-origin: bottom center;
-  height: 32px;
+  height: 36px;
   margin-bottom: -8px;
 }
 .bar-reveal__bar:nth-child(3) {
   background: #F0F4FF;
   transform-origin: top center;
-  height: 32px;
+  height: 36px;
   margin-bottom: 8px;
 }
 
@@ -2778,6 +2778,11 @@ a.contact__detail:hover {
   :root { --section-py: 70px; }
 
   .section-header { margin-bottom: 48px; }
+  .bar-reveal__bar { width: 3px !important; }
+  .bar-reveal__bar:nth-child(1),
+  .bar-reveal__bar:nth-child(2),
+  .bar-reveal__bar:nth-child(3) { height: 32px !important; }
+  .bar-reveal__text { font-size: 13px !important; }
 
   .hero__title { font-size: clamp(36px, 9vw, 52px); }
   .hero__tag { display: none; }
