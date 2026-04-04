@@ -835,12 +835,18 @@ HTML:
 /* Mobile skill chips (hidden on desktop) */
 .hero__chips {
   display: none;
-  flex-wrap: wrap;
+  position: relative;
   justify-content: center;
-  gap: 10px;
-  margin-top: 36px;
+  height: 36px;
+  margin-top: 80px;
+  width: 100%;
 }
 .hero__chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(8px);
+  opacity: 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -854,6 +860,18 @@ HTML:
   font-weight: 500;
   color: var(--text-muted);
   white-space: nowrap;
+  animation: chipCycle 10s infinite;
+}
+.hero__chip:nth-child(1) { animation-delay:   0s; }
+.hero__chip:nth-child(2) { animation-delay:  -7.5s; }
+.hero__chip:nth-child(3) { animation-delay:  -5s; }
+.hero__chip:nth-child(4) { animation-delay:  -2.5s; }
+
+@keyframes chipCycle {
+  0%        { opacity: 0; transform: translate(-50%, -50%) translateY(8px); }
+  5%        { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+  20%       { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+  25%, 100% { opacity: 0; transform: translate(-50%, -50%) translateY(-8px); }
 }
 
 .hero__stat-divider {
@@ -2731,7 +2749,7 @@ a.contact__detail:hover {
   .hero__ctas { justify-content: center; }
   .hero__stats { justify-content: center; }
   .hero__chips { display: flex; }
-  .hero__visual { height: 420px; margin-top: 60px; }
+  .hero__visual { height: 420px; margin-top: 20px; }
   .hero__tag--1 { left: 0; }
   .hero__tag--2 { right: 0; }
   .hero__tag--3 { left: 0; }
