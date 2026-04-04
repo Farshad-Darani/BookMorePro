@@ -2756,6 +2756,7 @@ a.contact__detail:hover {
   .hero__tag--4 { right: 0; }
 
   .services__grid { grid-template-columns: 1fr; }
+  .services { padding-bottom: calc(var(--section-py) + 48px); }
   .work-slide { flex: 0 0 520px; }
 
   .about__container {
@@ -2782,7 +2783,7 @@ a.contact__detail:hover {
   .bar-reveal__bar:nth-child(1),
   .bar-reveal__bar:nth-child(2),
   .bar-reveal__bar:nth-child(3) { height: 32px !important; }
-  .bar-reveal__text { font-size: 13px !important; }
+  .bar-reveal__text { font-size: 18px !important; }
 
   .hero__title { font-size: clamp(36px, 9vw, 52px); }
   .hero__tag { display: none; }
