@@ -2756,7 +2756,7 @@ a.contact__detail:hover {
   .hero__tag--4 { right: 0; }
 
   .services__grid { grid-template-columns: 1fr; }
-  .services { padding-bottom: calc(var(--section-py) + 48px); }
+  .services { padding-bottom: calc(var(--section-py) + 80px); }
   .work-slide { flex: 0 0 520px; }
 
   .about__container {
@@ -2791,6 +2791,13 @@ a.contact__detail:hover {
   .hero__ring { width: 260px; height: 260px; }
 
   .process__timeline { grid-template-columns: 1fr; }
+  .process__content {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 28px;
+    padding-right: 28px;
+    border-radius: var(--radius);
+  }
   .process__step { align-items: flex-start; text-align: left; }
   .work-slide { flex: 0 0 calc(100vw - 40px); }
 
