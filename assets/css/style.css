@@ -1176,33 +1176,33 @@ HTML:
 
 .bar-reveal__bar {
   display: block;
-  width: 3.5px;
+  width: 4px;
   border-radius: 2px;
   transform: scaleY(0);
 }
 .bar-reveal__bar:nth-child(1) {
   background: #F0F4FF;
   transform-origin: top center;
-  height: 36px;
+  height: 40px;
   margin-bottom: 4px;
 }
 .bar-reveal__bar:nth-child(2) {
   background: #00C2FF;
   transform-origin: bottom center;
-  height: 36px;
+  height: 40px;
   margin-bottom: -8px;
 }
 .bar-reveal__bar:nth-child(3) {
   background: #F0F4FF;
   transform-origin: top center;
-  height: 36px;
+  height: 40px;
   margin-bottom: 8px;
 }
 
 .bar-reveal__text {
   display: inline-block;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
