@@ -2798,8 +2798,21 @@ a.contact__detail:hover {
     padding: 40px 24px 220px;
     border-radius: var(--radius);
   }
-  .process__step { align-items: flex-start; text-align: left; }
-  .process .section-header { margin-top: -120px; }
+  .process__step { align-items: center; text-align: center; }
+  .process__step-body { align-items: center; }
+  .process .section-header { margin-top: -380px; }
+  .process__line { display: none; }
+  .process__timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 36px;
+    bottom: 36px;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #003a52, #00C2FF, #003a52);
+    z-index: 0;
+  }
   .work-slide { flex: 0 0 calc(100vw - 40px); }
 
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
