@@ -2792,7 +2792,7 @@ a.contact__detail:hover {
   .hero__ring { width: 260px; height: 260px; }
 
   .process__timeline { grid-template-columns: 1fr; }
-  .process::before { height: 40px; }
+  .process .section-header { margin-bottom: 60px; }
   .process__content {
     margin-left: 0;
     margin-right: 0;
