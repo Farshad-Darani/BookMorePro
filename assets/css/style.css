@@ -2792,7 +2792,7 @@ a.contact__detail:hover {
   .hero__ring { width: 260px; height: 260px; }
 
   .process__timeline { grid-template-columns: 1fr; }
-  .process .section-header { margin-bottom: 60px; }
+  .process .section-header { margin-bottom: 70px; }
   .process__content {
     margin-left: 0;
     margin-right: 0;
@@ -2800,16 +2800,16 @@ a.contact__detail:hover {
     border-radius: var(--radius);
   }
   .process__step { flex-direction: row; align-items: flex-start; gap: 20px; text-align: center; }
-  .process__step-num { flex-shrink: 0; }
+  .process__step-num { flex-shrink: 0; width: 48px; height: 48px; font-size: 14px; margin-bottom: 0; }
   .process__step-body { flex: 1; align-items: center; }
   .process .section-header { margin-top: -380px; }
   .process__line { display: none; }
   .process__timeline::before {
     content: '';
     position: absolute;
-    left: 56px;
-    top: 36px;
-    bottom: 36px;
+    left: 44px;
+    top: 24px;
+    bottom: 24px;
     width: 1px;
     transform: none;
     background: linear-gradient(180deg, #003a52, #00C2FF, #080B12);
