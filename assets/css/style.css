@@ -2821,6 +2821,7 @@ a.contact__detail:hover {
   .work-slide { flex: 0 0 calc(100vw - 40px); }
   .work-slide__img-wrap { height: 56vw; }
   .work-slide--atfa .work-slide__phone { bottom: auto; top: 10px; right: 16px; width: 32%; }
+  .work-slide--vendfeed .work-slide__phone { bottom: auto; top: 10px; right: 16px; width: 30%; }
 
   .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 16px; }
   .work > .container > .section-header { margin-bottom: 72px; }
