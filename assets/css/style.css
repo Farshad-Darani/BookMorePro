@@ -2809,7 +2809,7 @@ a.contact__detail:hover {
     position: absolute;
     left: 50px;
     top: 30px;
-    bottom: 30px;
+    bottom: -80px;
     width: 1px;
     transform: none;
     background: linear-gradient(180deg, #003a52, #00C2FF, #080B12);
