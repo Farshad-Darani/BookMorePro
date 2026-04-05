@@ -661,7 +661,8 @@ function initHeroCounters() {
 // ============================================================
 (function initChartCutAnim() {
   const charts = document.querySelectorAll('.process__chart-cut');
-  if (!charts.length) return;
+  const section = document.querySelector('.process');
+  if (!charts.length || !section) return;
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -670,7 +671,7 @@ function initHeroCounters() {
       }
     });
   }, { threshold: 0.1 });
-  obs.observe(charts[0]);
+  obs.observe(section);
 })();
 
 // ============================================================
