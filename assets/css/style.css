@@ -2849,7 +2849,9 @@ a.contact__detail:hover {
   .about__right .section-header { top: 0; text-align: center; }
   .about__title { text-align: center !important; margin-top: 0; }
   .about__subtitle { text-align: center; }
-  .about__body { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+  .about__body { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; display: flex; flex-direction: column; }
+  .about__right  { order: 1; }
+  .about__profile { order: 2; }
 }
 
 /* ============================================================
