@@ -2798,18 +2798,19 @@ a.contact__detail:hover {
     padding: 40px 24px 220px;
     border-radius: var(--radius);
   }
-  .process__step { align-items: center; text-align: center; }
-  .process__step-body { align-items: center; }
+  .process__step { flex-direction: row; align-items: flex-start; gap: 20px; text-align: center; }
+  .process__step-num { flex-shrink: 0; }
+  .process__step-body { flex: 1; align-items: center; }
   .process .section-header { margin-top: -380px; }
   .process__line { display: none; }
   .process__timeline::before {
     content: '';
     position: absolute;
-    left: 50%;
+    left: 56px;
     top: 36px;
     bottom: 36px;
     width: 1px;
-    transform: translateX(-50%);
+    transform: none;
     background: linear-gradient(180deg, #003a52, #00C2FF, #003a52);
     z-index: 0;
   }
