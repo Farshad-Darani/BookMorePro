@@ -660,17 +660,17 @@ function initHeroCounters() {
 // PROCESS CHART CUT — fade + draw animation on scroll
 // ============================================================
 (function initChartCutAnim() {
-  const chart = document.querySelector('.process__chart-cut');
-  if (!chart) return;
+  const charts = document.querySelectorAll('.process__chart-cut');
+  if (!charts.length) return;
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        chart.classList.add('is-visible');
-        obs.unobserve(chart);
+        charts.forEach(c => c.classList.add('is-visible'));
+        obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-  obs.observe(chart);
+  obs.observe(charts[0]);
 })();
 
 // ============================================================
