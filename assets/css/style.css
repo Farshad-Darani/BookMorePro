@@ -2801,7 +2801,7 @@ a.contact__detail:hover {
   }
   .process__step { flex-direction: row; align-items: flex-start; gap: 20px; text-align: center; }
   .process__step-num { flex-shrink: 0; width: 60px; height: 60px; font-size: 16px; margin-bottom: 0; }
-  .process__step-body { flex: 1; align-items: center; }
+  .process__step-body { flex: 1; align-items: flex-start; text-align: left; }
   .process .section-header { margin-top: -380px; }
   .process__line { display: none; }
   .process__timeline::before {
