@@ -2821,7 +2821,7 @@ a.contact__detail:hover {
   .work-slide { flex: 0 0 calc(100vw - 40px); }
   .work-slide__img-wrap { height: 56vw; }
   .work-slide--atfa .work-slide__phone { bottom: auto; top: 10px; right: 16px; width: 32%; }
-  .work-slide--vendfeed .work-slide__phone { bottom: auto; top: 10px; right: 16px; width: 30%; }
+  .work-slide--vendfeed .work-slide__phone { bottom: auto; top: 38px; right: 16px; width: 30%; }
   .work-slide--vendfeed .work-slide__img-wrap { height: 56vw; padding: 0; }
 
   .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 16px; }
@@ -2830,6 +2830,26 @@ a.contact__detail:hover {
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
 
   .work-card--wide { grid-column: span 1; }
+
+  /* About section — reset desktop positioning, centre everything */
+  .about__content {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    background: none;
+    box-shadow: none;
+    clip-path: none;
+    pointer-events: auto;
+  }
+  .about__content > .bar-reveal {
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+  .about__right .section-header { top: 0; text-align: center; }
+  .about__title { text-align: center !important; margin-top: 0; }
+  .about__subtitle { text-align: center; }
+  .about__body { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
 }
 
 /* ============================================================
