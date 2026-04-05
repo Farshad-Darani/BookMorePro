@@ -2821,6 +2821,7 @@ a.contact__detail:hover {
   .work-slide { flex: 0 0 calc(100vw - 40px); }
 
   .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 16px; }
+  .work > .container > .section-header { margin-bottom: 72px; }
 
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
 
