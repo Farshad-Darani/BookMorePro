@@ -1607,6 +1607,7 @@ HTML:
   display: block;
   pointer-events: none;
 }
+.process__chart-cut--mobile { display: none; }
 .process__chart-cut polygon {
   opacity: 0;
   transition: opacity 0.8s ease 0.1s;
@@ -2792,6 +2793,8 @@ a.contact__detail:hover {
   .hero__ring { width: 260px; height: 260px; }
 
   .process__timeline { grid-template-columns: 1fr; }
+  .process__chart-cut--desktop { display: none; }
+  .process__chart-cut--mobile  { display: block; }
   .process .section-header { margin-bottom: 70px; }
   .process__content {
     margin-left: 0;

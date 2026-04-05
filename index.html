@@ -541,8 +541,8 @@
                 </div>
             </div>
         </div>
-        <!-- chart shape at section bottom, filled with bg color to cut into process -->
-        <svg class="process__chart-cut" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+        <!-- chart shape at section bottom — DESKTOP -->
+        <svg class="process__chart-cut process__chart-cut--desktop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="chartLineGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%"   stop-color="#0F1520" stop-opacity="1"/>
@@ -558,6 +558,27 @@
           <polyline
             fill="none"
             stroke="url(#chartLineGrad)"
+            stroke-width="3"
+            points="0,760 180,760 180,700 360,700 360,725 540,725 540,665 720,665 720,560 900,560 900,618 1080,618 1080,520 1260,520 1260,220 1440,220"
+          />
+        </svg>
+        <!-- chart shape at section bottom — MOBILE (edit points below) -->
+        <svg class="process__chart-cut process__chart-cut--mobile" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="chartLineGradMobile" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#0F1520" stop-opacity="1"/>
+              <stop offset="45%"  stop-color="#006E8A" stop-opacity="0.5"/>
+              <stop offset="55%"  stop-color="#006E8A" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#0F1520" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <polygon
+            fill="#080B12"
+            points="0,800 1440,800 1440,220 1260,220 1260,520 1080,520 1080,618 900,618 900,560 720,560 720,665 540,665 540,725 360,725 360,700 180,700 180,760 0,760"
+          />
+          <polyline
+            fill="none"
+            stroke="url(#chartLineGradMobile)"
             stroke-width="3"
             points="0,760 180,760 180,700 360,700 360,725 540,725 540,665 720,665 720,560 900,560 900,618 1080,618 1080,520 1260,520 1260,220 1440,220"
           />
