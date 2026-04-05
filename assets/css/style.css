@@ -2793,12 +2793,13 @@ a.contact__detail:hover {
 
   .process__timeline { grid-template-columns: 1fr; }
   .process__content {
-    margin-left: 16px;
-    margin-right: 16px;
-    padding: 40px 24px 80px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 40px 24px 220px;
     border-radius: var(--radius);
   }
   .process__step { align-items: flex-start; text-align: left; }
+  .process .section-header { margin-top: -120px; }
   .work-slide { flex: 0 0 calc(100vw - 40px); }
 
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
