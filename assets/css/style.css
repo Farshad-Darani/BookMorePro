@@ -2834,11 +2834,11 @@ a.contact__detail:hover {
   /* About section — reset desktop positioning, centre everything */
   .about__content {
     margin: 0;
-    padding: 40px 24px 40px;
+    padding: 40px 24px 0;
     top: 0;
     background: var(--surface);
-    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5);
-    border-radius: var(--radius);
+    box-shadow: none;
+    border-radius: var(--radius) var(--radius) 0 0;
     clip-path: none;
     pointer-events: auto;
   }
@@ -2847,7 +2847,7 @@ a.contact__detail:hover {
     margin-top: 0;
     margin-bottom: 0;
   }
-  .about__right .section-header { top: 0; text-align: center; background: var(--surface); margin: 0; padding: 0 24px 32px; border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .about__right .section-header { top: 0; text-align: center; background: var(--surface); margin: 0; padding: 0 24px 32px; border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
   .about__title { text-align: center !important; margin-top: 16px; }
   .about__subtitle { text-align: center; }
   .about__body { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; display: flex; flex-direction: column; }
