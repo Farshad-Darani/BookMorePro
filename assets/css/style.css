@@ -2811,7 +2811,7 @@ a.contact__detail:hover {
     bottom: 36px;
     width: 1px;
     transform: none;
-    background: linear-gradient(180deg, #003a52, #00C2FF, #003a52);
+    background: linear-gradient(180deg, #003a52, #00C2FF, #080B12);
     z-index: 0;
   }
   .work-slide { flex: 0 0 calc(100vw - 40px); }
