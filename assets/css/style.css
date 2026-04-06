@@ -3111,3 +3111,24 @@ a.contact__detail:hover {
   .chat-widget { bottom: 16px; right: 16px; }
   .chat-widget__panel { width: calc(100vw - 32px); max-height: 65vh; }
 }
+
+/* ============================================================
+   ABOUT BAR-REVEAL — nuclear mobile centre fix (last rule wins)
+   ============================================================ */
+@media (max-width: 600px) {
+  .about__content {
+    display: block !important;
+    text-align: center !important;
+  }
+  .about__content > * {
+    position: static !important;
+  }
+  #barRevealAbout {
+    display: inline-flex !important;
+    float: none !important;
+    position: static !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: fit-content !important;
+  }
+}
