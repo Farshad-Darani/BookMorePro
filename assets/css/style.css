@@ -2836,6 +2836,9 @@ a.contact__detail:hover {
     margin: 0;
     padding: 40px 24px 0;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--surface);
     box-shadow: none;
     border-radius: var(--radius) var(--radius) 0 0;
