@@ -2845,24 +2845,16 @@ a.contact__detail:hover {
     pointer-events: auto;
   }
   .about__content > .bar-reveal,
-  #barRevealAbout {
-    display: inline-flex !important;
-    margin: 0 auto !important;
-    position: static !important;
-    vertical-align: top;
-  }
   .about__content > * { position: static !important; }
-  .about__right .section-header { top: 0; text-align: center; background: var(--surface); margin: 0; padding: 0 24px 32px; border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
   .about__title { text-align: center !important; margin-top: 16px; }
   .about__subtitle { text-align: center; }
   .about__body { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; display: flex; flex-direction: column; }
   .about__right  { display: contents; }
   .about__content      { order: 1; }
-  .about__right .section-header { order: 2; }
-  .about__bio          { order: 3; }
-  .about__profile      { order: 4; }
-  .about__stats-row    { order: 5; }
-  .about__skills-box   { order: 6; }
+  .about__bio          { order: 2; }
+  .about__profile      { order: 3; }
+  .about__stats-row    { order: 4; }
+  .about__skills-box   { order: 5; }
 }
 
 /* ============================================================
@@ -3120,12 +3112,17 @@ a.contact__detail:hover {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    text-align: center !important;
+    padding: 40px 24px 32px !important;
+    background: var(--surface) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5) !important;
+    margin: 0 !important;
+    top: 0 !important;
+    clip-path: none !important;
   }
   .about__content > * {
     position: static !important;
   }
-  #barRevealAbout {
-    position: static !important;
-    float: none !important;
-  }
+  .about__title { margin-top: 20px !important; }
 }
