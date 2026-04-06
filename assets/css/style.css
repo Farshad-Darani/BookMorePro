@@ -2824,9 +2824,9 @@ a.contact__detail:hover {
   .work-slide--vendfeed .work-slide__phone { bottom: auto; top: 38px; right: 16px; width: 30%; }
   .work-slide--vendfeed .work-slide__img-wrap { height: 56vw; padding: 0; }
 
-  .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 16px; }
+  .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 32px; }
   .work > .container > .section-header { margin-bottom: 72px; }
-  .work { padding-bottom: 40px; }
+  .work { padding-bottom: 80px; }
 
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
 
