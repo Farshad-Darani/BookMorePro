@@ -3117,18 +3117,15 @@ a.contact__detail:hover {
    ============================================================ */
 @media (max-width: 600px) {
   .about__content {
-    display: block !important;
-    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
   .about__content > * {
     position: static !important;
   }
   #barRevealAbout {
-    display: inline-flex !important;
-    float: none !important;
     position: static !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: fit-content !important;
+    float: none !important;
   }
 }
