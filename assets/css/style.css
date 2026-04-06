@@ -2851,6 +2851,7 @@ a.contact__detail:hover {
     position: static !important;
     vertical-align: top;
   }
+  .about__content > * { position: static !important; }
   .about__right .section-header { top: 0; text-align: center; background: var(--surface); margin: 0; padding: 0 24px 32px; border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
   .about__title { text-align: center !important; margin-top: 16px; }
   .about__subtitle { text-align: center; }
