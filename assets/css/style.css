@@ -2836,29 +2836,20 @@ a.contact__detail:hover {
     margin: 0;
     padding: 40px 24px 0;
     top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+    text-align: center;
     background: var(--surface);
     box-shadow: none;
     border-radius: var(--radius) var(--radius) 0 0;
     clip-path: none;
     pointer-events: auto;
   }
-  .about__content > .bar-reveal {
-    justify-content: center;
-    width: fit-content !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    position: static !important;
-  }
+  .about__content > .bar-reveal,
   #barRevealAbout {
-    display: flex !important;
-    width: fit-content !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    display: inline-flex !important;
+    margin: 0 auto !important;
+    position: static !important;
+    vertical-align: top;
   }
   .about__right .section-header { top: 0; text-align: center; background: var(--surface); margin: 0; padding: 0 24px 32px; border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
   .about__title { text-align: center !important; margin-top: 16px; }
