@@ -2824,7 +2824,7 @@ a.contact__detail:hover {
   .work-slide--vendfeed .work-slide__phone { bottom: auto; top: 38px; right: 16px; width: 30%; }
   .work-slide--vendfeed .work-slide__img-wrap { height: 56vw; padding: 0; }
 
-  .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 32px; }
+  .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 20px; }
   .work > .container > .section-header { margin-bottom: 72px; }
   .work { padding-bottom: 80px; }
 
@@ -3114,11 +3114,11 @@ a.contact__detail:hover {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 40px 24px 32px !important;
+    padding: 20px 24px 24px !important;
     background: var(--surface) !important;
     border-radius: var(--radius) var(--radius) 0 0 !important;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.5) !important;
-    margin: 0 !important;
+    box-shadow: none !important;
+    margin: -50px 0 0 !important;
     top: 0 !important;
     clip-path: none !important;
   }
@@ -3126,4 +3126,13 @@ a.contact__detail:hover {
     position: static !important;
   }
   .about__title { margin-top: 80px !important; }
+  .about__body { gap: 16px !important; }
+
+  /* Reset desktop negative positioning on profile card */
+  .about__image-wrap { top: 0 !important; margin-bottom: 31px !important; }
+  .about__tagline { top: 0 !important; margin-top: 0 !important; margin-bottom: 31px !important; text-align: center !important; }
+  .about__cta-row { margin-top: 0 !important; align-items: stretch !important; }
+  .about__link { display: flex !important; justify-content: center !important; width: 100% !important; box-sizing: border-box !important; }
+  .about__stat { align-items: center !important; }
+  .about__stats-row { margin: 0 !important; }
 }
