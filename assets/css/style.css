@@ -65,6 +65,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+@media (hover: none), (pointer: coarse) {
+  body, button, a, input, textarea, select, [data-tilt], [role="button"] { cursor: auto !important; }
+  .cursor { display: none !important; }
+}
+
 img, svg { display: block; max-width: 100%; }
 
 a { color: inherit; text-decoration: none; }
@@ -1907,7 +1912,7 @@ HTML:
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  margin-bottom: -50px;
+  margin-bottom: 50px;
   position: relative;
   z-index: 1;
   white-space: nowrap;
@@ -1919,7 +1924,7 @@ HTML:
   border-radius: var(--radius) var(--radius) 0 0;
   background: var(--surface);
   /* top | right | bottom | left */
-  padding: 36px calc(var(--container-px) + 160px) 350px calc(var(--container-px) + 364px + 160px);
+  padding: 36px calc(var(--container-px) + 160px) 280px calc(var(--container-px) + 364px + 160px);
   margin-top: 0;
   margin-bottom: -600px;
   margin-left: calc(-1 * var(--container-px) - 364px);
@@ -1960,7 +1965,7 @@ HTML:
 .about__title {
   font-size: clamp(26px, 3.5vw, 38px) !important;
   text-align: right;
-  margin-top: -80px;
+  margin-top: 16px;
   margin-bottom: 16px !important;
   position: relative;
   z-index: 1;
@@ -2776,7 +2781,7 @@ a.contact__detail:hover {
   .footer__nav { flex-direction: column; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   :root { --section-py: 70px; }
 
   .section-header { margin-bottom: 48px; }
@@ -2825,7 +2830,7 @@ a.contact__detail:hover {
   .work-slide--vendfeed .work-slide__img-wrap { height: 56vw; padding: 0; }
 
   .work > .container > .bar-reveal { margin-left: auto; margin-right: 0; margin-bottom: 20px; }
-  .work > .container > .section-header { margin-bottom: 72px; }
+  .work > .container > .section-header { margin-bottom: 72px; margin-top: 25px; }
   .work { padding-bottom: 80px; }
 
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
@@ -3108,7 +3113,7 @@ a.contact__detail:hover {
 /* ============================================================
    ABOUT BAR-REVEAL — nuclear mobile centre fix (last rule wins)
    ============================================================ */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .about__content {
     display: flex !important;
     flex-direction: column !important;
@@ -3125,14 +3130,60 @@ a.contact__detail:hover {
   .about__content > * {
     position: static !important;
   }
+  .about__content > .bar-reveal { margin-bottom: -50px !important; }
   .about__title { margin-top: 80px !important; }
-  .about__body { gap: 16px !important; }
+  .about__body { gap: 16px !important; align-items: stretch !important; }
 
   /* Reset desktop negative positioning on profile card */
   .about__image-wrap { top: 0 !important; margin-bottom: 31px !important; }
   .about__tagline { top: 0 !important; margin-top: 0 !important; margin-bottom: 31px !important; text-align: center !important; }
   .about__cta-row { margin-top: 0 !important; align-items: stretch !important; }
   .about__link { display: flex !important; justify-content: center !important; width: 100% !important; box-sizing: border-box !important; }
-  .about__stat { align-items: center !important; }
+  .about__stat { align-items: center !important; text-align: center !important; }
   .about__stats-row { margin: 0 !important; }
+
+  /* Skills — single column, reset desktop negative margins */
+  .about__skills-box {
+    grid-template-columns: 1fr !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: calc(-1 * var(--section-py)) !important;
+    padding-bottom: calc(var(--section-py) + 28px) !important;
+    clip-path: none !important;
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+  }
+
+  /* AI availability box — remove huge side margins */
+  .about__availability {
+    margin: 0 var(--container-px) !important;
+    padding: 24px 2px 18px !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Hero card — center avatar */
+  .hero__avatar { margin-left: auto !important; margin-right: auto !important; }
+  .hero__card-location { justify-content: center !important; }
+  .hero__card-status { justify-content: center !important; }
+
+  /* Footer — center brand */
+  .footer__brand { text-align: center !important; }
+  .footer__brand p { max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
+  .footer__logo { justify-content: center !important; }
+
+  /* Footer — reorder: brand → social → nav links */
+  .footer__top { flex-direction: column !important; align-items: center !important; gap: 24px !important; }
+  .footer__brand { order: 1 !important; width: 100% !important; }
+  .footer__nav { display: contents !important; }
+  .footer__social { order: 2 !important; justify-content: center !important; }
+  .footer__nav-row { order: 3 !important; justify-content: center !important; flex-wrap: wrap !important; }
+
+  /* Contact — reset AOS translate, full-width boxes */
+  .contact__grid { width: 100% !important; grid-template-columns: 1fr !important; }
+  .contact__info,
+  .contact__form { width: 100% !important; transform: none !important; }
+
+  /* Contact section — push title down, match bar-reveal → header gap to other sections */
+  .contact > .container > .bar-reveal { margin-top: 40px !important; margin-bottom: 24px !important; }
+  .contact > .container > .section-header { margin-bottom: 40px !important; }
 }

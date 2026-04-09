@@ -13,8 +13,10 @@ window.addEventListener('load', () => {
   if (!loader) return;
   setTimeout(() => {
     loader.classList.add('hidden');
-    document.body.style.cursor = 'none';
-    initCursor();
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.body.style.cursor = 'none';
+      initCursor();
+    }
     initHeroParticles();
     initGalaxyStars();
     initBarReveal();
